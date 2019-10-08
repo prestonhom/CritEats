@@ -10,6 +10,7 @@ const restaurantSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    restaurant_photo:String,
     description: String,
     zipcode: String,
     date:String

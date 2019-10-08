@@ -33,7 +33,8 @@ class App extends Component {
     )
   }
 
-  handleCheckCreds=(idx)=>{
+  handleARestaurant=(idx)=>{
+    console.log(this.state.restaurants[idx])
     return(this.state.restaurants[idx])
   }
 
@@ -52,6 +53,7 @@ async componentDidMount(){
           <Route exact path='/' render={() =>(
             <MainPage
               restaurants={this.state.restaurants}
+              handleARestaurant={this.handleARestaurant}
             />
           )}/>
           <Route path={`/restaurants/:id`} render={props=>

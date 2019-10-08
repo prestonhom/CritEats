@@ -8,10 +8,12 @@ class RestaurantPage extends Component{
  
     render(){
         let restaurantName = this.state.restaurant ? this.state.restaurant.name : null
+        let menuPhoto = this.state.restaurant.menu[0].menu_photo
     return(
         <div>
         
         {restaurantName}
+        <img src={menuPhoto}/>
         
         </div>
         )

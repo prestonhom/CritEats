@@ -8,6 +8,8 @@ const MainPage=(props)=>{
             <div>
             <RestaurantList 
                 restaurants={props.restaurants}
+                handleARestaurant={props.handleARestaurant}
+                
             />
             
             </div>
