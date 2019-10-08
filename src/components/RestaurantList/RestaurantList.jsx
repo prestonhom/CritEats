@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Route, Switch} from 'react-router-dom';
-import RestaurantPage from '../RestaurantPage/RestaurantPage'
+import RestaurantPage from '../../pages/RestaurantPage/RestaurantPage'
 
 const RestaurantList=(props)=>{
         return(

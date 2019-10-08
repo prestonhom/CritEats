@@ -4,7 +4,7 @@ import {Link, Route, Switch, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
-
+import RestaurantPage from '../RestaurantPage/RestaurantPage'
 import userService from '../../utils/userService';
 import tokenService from '../../utils/tokenService';
 import {getRestaurants} from '../../services/restaurant-api';
@@ -45,13 +45,18 @@ async componentDidMount(){
       <div>
         <header className='header-footer'>CRITEATS</header>
         <Switch>
-          <Route exact path='/' render={() =>
+          <Route exact path='/' render={() =>(
             <MainPage
               restaurants={this.state.restaurants}
             />
-          }/>
-     
-
+          )}/>
+          <Route path={`/restaurants/:id`} render={props=>
+          <RestaurantPage
+           {...props}
+          restaurant={this.handleOneRestaurant}      
+          />
+          }
+          />
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
               history={history}
