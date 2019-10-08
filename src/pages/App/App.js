@@ -11,7 +11,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      restaurants: []
     };
   }
   handleLogout = () => {
@@ -21,6 +22,22 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
+  }
+
+  handleOneRestaurant=(id)=>{
+    return (
+    this.state.restaurants[id]
+    )
+  }
+
+
+async componentDidMount(){
+    const restaurant = await getRestaurants();
+    const restaurantsObject= restaurant.result;
+    this.setState({
+      restaurants: restaurantsObject
+    })
+   
   }
   render() {
     return (
@@ -32,6 +49,7 @@ class App extends Component {
             
             />
           }/>
+        
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
               history={history}
