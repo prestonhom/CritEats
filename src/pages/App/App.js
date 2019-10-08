@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import {Link, Route, Switch, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
+
 import userService from '../../utils/userService';
 import tokenService from '../../utils/tokenService';
+import {getRestaurants} from '../../services/restaurant-api';
 
 class App extends Component {
   constructor() {
@@ -30,7 +32,6 @@ class App extends Component {
     )
   }
 
-
 async componentDidMount(){
     const restaurant = await getRestaurants();
     const restaurantsObject= restaurant.result;
@@ -46,10 +47,11 @@ async componentDidMount(){
         <Switch>
           <Route exact path='/' render={() =>
             <MainPage
-            
+              restaurants={this.state.restaurants}
             />
           }/>
-        
+     
+
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
               history={history}

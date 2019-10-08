@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import RestaurantList from '../../components/RestaurantList/RestaurantList'
 
-const MainPage=()=>{
+const MainPage=(props)=>{
         return(
             <div>
-            <RestaurantList />
+            <RestaurantList 
+                restaurants={props.restaurants}
+            />
             </div>
         )
 }

@@ -1,62 +1,23 @@
 import React, {Component} from 'react';
 import {Link, Route, Switch} from 'react-router-dom';
-import Restaurant from '../Restaurant/Restaurant'
-import {getRestaurants} from '../../services/restaurant-api';
+import RestaurantPage from '../RestaurantPage/RestaurantPage'
 
-class RestaurantList extends Component {
-    state = {
-        restaurants:[]
-    }
-    handleOneRestaurant=(id)=>{
-        return (
-        this.state.restaurants[id]
-        )
-      }
-    
-
-    async componentDidMount(){
-        const restaurant = await getRestaurants();
-        const restaurantsObject= restaurant.result;
-        this.setState({
-          restaurants: restaurantsObject
-        })
-       
-      }
-    render(){
+const RestaurantList=(props)=>{
         return(
-            <div>
-                 
-            {this.state.restaurants.map((s,idx)=>{
+            <div>    
+            {props.restaurants.map((s,idx)=>{
                return(
-                <Link 
+                <Link
+                to={`/restaurants/${idx}`}
                 key={idx}
-                to={`/result/${idx}`}
                 >
-
                 {s.name}
 
                 </Link>
-               )
-                
+            
+               )              
             })}
-           
-       
-        {/* <Route path={`/restaurant/:id`} render={props=>
-        <Restaurant 
-           {...props}
-          restaurant={this.handleOneRestaurant}
-            
-        />
-          
-        
-      }
-      /> */}
-
-     
-
-            
-            </div>
-            )
-        }
+           </div>   
+        )  
 }
 export default RestaurantList;
