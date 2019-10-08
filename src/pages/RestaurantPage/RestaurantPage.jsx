@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const RestaurantPage = (props)=>{
-    const restaurant = props.restaurant(props.match.params.id)
+class RestaurantPage extends Component{
+    state = {
+        restaurant: this.props.restaurant
+    }
+
+ 
+    render(){
+        let restaurantName = this.state.restaurant ? this.state.restaurant.name : null
     return(
         <div>
-            RESTAURANT ID{restaurant.id}
-            RESTAURANT NAME{restaurant.name}
+        
+        {restaurantName}
+        
         </div>
-    )
+        )
+    }
+    
 }
 
 export default RestaurantPage;

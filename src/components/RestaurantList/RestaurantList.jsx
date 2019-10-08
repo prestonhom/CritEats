@@ -3,21 +3,20 @@ import {Link, Route, Switch} from 'react-router-dom';
 import RestaurantPage from '../../pages/RestaurantPage/RestaurantPage'
 
 const RestaurantList=(props)=>{
-        return(
+      return(
             <div>    
-            {props.restaurants.map((s,idx)=>{
+            {props.restaurants.map((s,id)=>{
                return(
-                <Link
-                to={`/restaurants/${idx}`}
-                key={idx}
-                >
-                {s.name}
-
-                </Link>
-            
+                  <Link
+                  to={`/restaurants/${id}`}
+                  key={id}
+                  name={s.name}
+                  > 
+                  {s.name}
+                  </Link>
                )              
             })}
-           </div>   
-        )  
+         </div>   
+   )  
 }
 export default RestaurantList;

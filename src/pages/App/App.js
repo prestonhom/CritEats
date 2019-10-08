@@ -27,9 +27,14 @@ class App extends Component {
   }
 
   handleOneRestaurant=(id)=>{
-    return (
-    this.state.restaurants[id]
+    console.log(this)
+    console.log(id)
+    return (this.state.restaurants[id]
     )
+  }
+
+  handleCheckCreds=(idx)=>{
+    return(this.state.restaurants[idx])
   }
 
 async componentDidMount(){
@@ -37,8 +42,7 @@ async componentDidMount(){
     const restaurantsObject= restaurant.result;
     this.setState({
       restaurants: restaurantsObject
-    })
-   
+    }) 
   }
   render() {
     return (
@@ -51,10 +55,11 @@ async componentDidMount(){
             />
           )}/>
           <Route path={`/restaurants/:id`} render={props=>
-          <RestaurantPage
-           {...props}
-          restaurant={this.handleOneRestaurant}      
-          />
+            <RestaurantPage
+              {...props}
+              restaurant={this.handleOneRestaurant(this.props.location.pathname.split('/')[2])}  
+              
+            />
           }
           />
           <Route exact path='/signup' render={({ history }) => 
