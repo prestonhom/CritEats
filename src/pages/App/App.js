@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
+import MainPage from '../MainPage/MainPage';
 import userService from '../../utils/userService';
 import tokenService from '../../utils/tokenService';
 
@@ -22,17 +23,15 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
   render() {
-    
     return (
       <div>
         <header className='header-footer'>CRITEATS</header>
         <Switch>
           <Route exact path='/' render={() =>
-            <div>
-              hello
-            </div>
+            <MainPage
+            
+            />
           }/>
-         
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
               history={history}
@@ -45,7 +44,6 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
-         
         </Switch>
       </div>
     );
