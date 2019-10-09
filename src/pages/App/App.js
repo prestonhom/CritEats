@@ -56,14 +56,20 @@ async componentDidMount(){
               handleARestaurant={this.handleARestaurant}
             />
           )}/>
-          <Route path={`/restaurants/:id`} render={props=>
+          <Route exact path={'/restaurants/:id'} render={props=>
+            this.state.restaurants.length
+            ?
             <RestaurantPage
               {...props}
-              restaurant={this.handleOneRestaurant(this.props.location.pathname.split('/')[2])}  
+              restaurants={this.handleOneRestaurant(this.props.location.pathname.split('/')[2])}  
               
+              // restaurants={this.state.restaurants}
             />
+            :
+            <h1>Loading</h1>
           }
           />
+        
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
               history={history}

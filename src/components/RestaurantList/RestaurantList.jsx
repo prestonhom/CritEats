@@ -12,7 +12,6 @@ const RestaurantList=(props)=>{
                   to={`/restaurants/${idx}`}
                   key={idx}
                   name={s.name}
-                  onClick={() => props.handleARestaurant(idx)}
                   > 
                   {s.name}
                   <img style={{
@@ -20,6 +19,7 @@ const RestaurantList=(props)=>{
                      'height':'50px'
                   }}
                   src={s.restaurant_photo}
+                  alt='restaurant-images'
                   />
                   </Link>
                )              

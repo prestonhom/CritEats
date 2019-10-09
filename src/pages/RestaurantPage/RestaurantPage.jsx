@@ -1,19 +1,34 @@
 import React, {Component} from 'react';
 
+
 class RestaurantPage extends Component{
     state = {
-        restaurant: this.props.restaurant
+        restaurant: this.props.restaurants
     }
 
- 
+
+  
+    
     render(){
-        let restaurantName = this.state.restaurant ? this.state.restaurant.name : null
-        let menuPhoto = this.state.restaurant.menu[0].menu_photo
+        console.log('````````````````')
+       
+        let menus=this.state.restaurant.menus
+        console.log(menus)
+        let restaurantName = this.state.restaurants ? this.state.restaurants.name : null        
     return(
+
         <div>
-        
+            <h1>
+        {menus}
+        {this.state.restaurant.address}
         {restaurantName}
-        <img src={menuPhoto}/>
+        
+        </h1>
+        <img style={{
+            'width':'100px',
+            'height':'100px'
+        }}
+        src={this.state.restaurant.restaurant_photo}></img>
         
         </div>
         )
