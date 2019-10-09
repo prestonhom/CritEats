@@ -1,29 +1,32 @@
 import React, {Component} from 'react';
+import MenuList from '../../components/MenuList/MenuList'
 
 
 class RestaurantPage extends Component{
     state = {
-        restaurant: this.props.restaurants
+        restaurant: this.props.restaurants(this.props.match.params.id),
+        menu: []
     }
-
-
-  
-    
+    componentDidMount(){
+        this.setState({
+            menu: this.state.restaurant.menus
+        })
+    }
+   
     render(){
-        console.log('````````````````')
-       
-        let menus=this.state.restaurant.menus
-        console.log(menus)
+      
         let restaurantName = this.state.restaurants ? this.state.restaurants.name : null        
     return(
 
         <div>
             <h1>
-        {menus}
+        
         {this.state.restaurant.address}
         {restaurantName}
         
         </h1>
+        MENU ITEMS 
+        <MenuList />
         <img style={{
             'width':'100px',
             'height':'100px'

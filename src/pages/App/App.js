@@ -14,7 +14,9 @@ class App extends Component {
     super();
     this.state = {
       user: userService.getUser(),
-      restaurants: []
+      restaurants: [],
+      
+  
     };
   }
   handleLogout = () => {
@@ -32,11 +34,7 @@ class App extends Component {
     return (this.state.restaurants[id]
     )
   }
-
-  handleARestaurant=(idx)=>{
-    console.log(this.state.restaurants[idx])
-    return(this.state.restaurants[idx])
-  }
+  
 
 async componentDidMount(){
     const restaurant = await getRestaurants();
@@ -61,7 +59,20 @@ async componentDidMount(){
             ?
             <RestaurantPage
               {...props}
-              restaurants={this.handleOneRestaurant(this.props.location.pathname.split('/')[2])}  
+              restaurants={this.handleOneRestaurant}  
+              
+              // restaurants={this.state.restaurants}
+            />
+            :
+            <h1>Loading</h1>
+          }
+          />
+           <Route exact path={'/restaurants/:id/menus'} render={props=>
+            this.state.restaurants.menus.length
+            ?
+            <RestaurantPage
+              {...props}
+              restaurants={this.handleOneRestaurant}  
               
               // restaurants={this.state.restaurants}
             />

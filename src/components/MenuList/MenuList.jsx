@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
-import RestaurantPage from '../MenuList/MenuList'
 
-class Menu extends Component{
-    state={
-        restaurantIdx: null 
-    }
-    
 
-    render(){
-        return(
-
-        )
-    }
+const MenuList=(props)=>{
+   return(
+       <h1>
+           test menu
+       </h1>
+   )
 }
+export default MenuList;
