@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
+import MenuPage from '../../pages/MenuPage/MenuPage'
 
-
-const MenuList=(props)=>{
-   return(
-       <h1>
-           test menu
-       </h1>
-   )
+const MenuList=(props)=>{    
+            return(
+                
+            <div>
+                <MenuPage
+                menu={props.menu}  
+                />  
+            </div>
+            )
+           
 }
 export default MenuList;

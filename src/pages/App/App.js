@@ -5,6 +5,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
 import RestaurantPage from '../RestaurantPage/RestaurantPage'
+import MenuList from '../../components/MenuList/MenuList'
 import userService from '../../utils/userService';
 import tokenService from '../../utils/tokenService';
 import {getRestaurants} from '../../services/restaurant-api';
@@ -15,6 +16,7 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       restaurants: [],
+      menu:[]
       
   
     };
@@ -29,13 +31,13 @@ class App extends Component {
   }
 
   handleOneRestaurant=(id)=>{
-    console.log(this)
-    console.log(id)
-    return (this.state.restaurants[id]
-    )
+    console.log('testttttttt')
+    console.log(this.state.restaurants[id].menus)
+    return (this.state.restaurants[id])
   }
-  
 
+
+ 
 async componentDidMount(){
     const restaurant = await getRestaurants();
     const restaurantsObject= restaurant.result;
@@ -51,7 +53,13 @@ async componentDidMount(){
           <Route exact path='/' render={() =>(
             <MainPage
               restaurants={this.state.restaurants}
-              handleARestaurant={this.handleARestaurant}
+    
+            />
+          )}/>
+          <Route exact path='/restaurants' render={() =>(
+            <MainPage
+              restaurants={this.state.restaurants}
+    
             />
           )}/>
           <Route exact path={'/restaurants/:id'} render={props=>
@@ -67,17 +75,13 @@ async componentDidMount(){
             <h1>Loading</h1>
           }
           />
-           <Route exact path={'/restaurants/:id/menus'} render={props=>
-            this.state.restaurants.menus.length
-            ?
-            <RestaurantPage
+           <Route exact path={'/restaurants/:id/menu'} render={props=>
+            
+            <MenuList
               {...props}
-              restaurants={this.handleOneRestaurant}  
-              
-              // restaurants={this.state.restaurants}
+              menu={this.handleAllMenus}
             />
-            :
-            <h1>Loading</h1>
+         
           }
           />
         
