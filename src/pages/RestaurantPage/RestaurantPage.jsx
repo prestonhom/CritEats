@@ -1,27 +1,13 @@
 import React, {Component} from 'react';
 import MenuList from '../../components/MenuList/MenuList'
+import MenuPage from '../MenuPage/MenuPage'
 
 
 class RestaurantPage extends Component{
     state = {
         restaurant: this.props.restaurants(this.props.match.params.id),
-        
     }
-
-    handleAllMenus=()=>{
-        const allMenuForRestaurant = ()=>(this.state.restaurant.menus.map((s,idx)=>{
-          return s[idx]
-        }))
-        console.log('THE MENUS GO BELOW')
-        console.log(allMenuForRestaurant)
-     
-      }
-    // componentDidMount(){
-    //     if(this.state.menu)
-    //     this.setState({
-    //         menus: [...this.state.restaurant.menus]
-    //     })
-    // }
+    
     render(){
         return(
         <div>
@@ -31,9 +17,23 @@ class RestaurantPage extends Component{
             </h1>
         MENU ITEMS 
         <div>
-            <MenuList 
-                menu={this.state.restaurant.menus}
-            />
+            {this.state.restaurant.menus.map((m)=>{
+            return(
+                <div>
+                <MenuList
+                    name={m.name}
+                    menuPhoto={<img src={m.menu_photo}></img>}
+                    category={m.categories.map((s)=>{
+                        return(
+                            <div>
+                                THIS IS name of {s.id},{s.name}
+                            </div>
+                        )
+                    })}
+                />
+                </div>
+                )
+            })}
         </div>
             <img style={{
                 'width':'100px',

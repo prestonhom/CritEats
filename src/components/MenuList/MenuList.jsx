@@ -7,6 +7,8 @@ const MenuList=(props)=>{
             <div>
                 <MenuPage
                 menu={props.menu}  
+                menuPhoto={props.menuPhoto}
+                category = {props.category}
                 />  
             </div>
             )
