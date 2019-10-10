@@ -2,16 +2,12 @@ import React, {Component} from 'react';
 import MenuPage from '../../pages/MenuPage/MenuPage'
 
 const MenuList=(props)=>{    
-            return(
-                
-            <div>
-                <MenuPage
-                menu={props.menu}  
-                menuPhoto={props.menuPhoto}
-                category = {props.category}
-                />  
-            </div>
-            )
-           
+    return(
+        <div>
+            <MenuPage
+                menus={props.menus}
+            />  
+        </div>
+    )
 }
 export default MenuList;

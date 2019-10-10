@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link, Route, Switch, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -9,6 +10,7 @@ import MenuList from '../../components/MenuList/MenuList'
 import userService from '../../utils/userService';
 import tokenService from '../../utils/tokenService';
 import {getRestaurants} from '../../services/restaurant-api';
+
 
 class App extends Component {
   constructor() {
@@ -33,8 +35,6 @@ class App extends Component {
     return (this.state.restaurants[id])
   }
 
-
- 
 async componentDidMount(){
     const restaurant = await getRestaurants();
     const restaurantsObject= restaurant.result;

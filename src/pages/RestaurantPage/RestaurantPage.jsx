@@ -17,23 +17,9 @@ class RestaurantPage extends Component{
             </h1>
         MENU ITEMS 
         <div>
-            {this.state.restaurant.menus.map((m)=>{
-            return(
-                <div>
                 <MenuList
-                    name={m.name}
-                    menuPhoto={<img src={m.menu_photo}></img>}
-                    category={m.categories.map((s)=>{
-                        return(
-                            <div>
-                                THIS IS name of {s.id},{s.name}
-                            </div>
-                        )
-                    })}
+                    menus={this.state.restaurant.menus}
                 />
-                </div>
-                )
-            })}
         </div>
             <img style={{
                 'width':'100px',
