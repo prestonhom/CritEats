@@ -47,17 +47,26 @@ async componentDidMount(){
       <div>
         <header className='header-footer'>CRITEATS</header>
         <Switch>
+          
           <Route exact path='/' render={() =>(
+            this.state.restaurants.length
+            ?
             <MainPage
               restaurants={this.state.restaurants}
     
             />
+            :
+            <h1>is Loading</h1>
           )}/>
           <Route exact path='/restaurants' render={() =>(
+             this.state.restaurants.length
+             ?
             <MainPage
               restaurants={this.state.restaurants}
     
             />
+            :
+            <h1>is Loading</h1>
           )}/>
           <Route exact path={'/restaurants/:id'} render={props=>
             this.state.restaurants.length

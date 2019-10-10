@@ -1,0 +1,6 @@
+.NavBar{
+    background-color:red;
+}
+.NavBar:hover{
+    background-color:blue;
+}

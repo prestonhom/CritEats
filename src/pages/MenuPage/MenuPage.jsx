@@ -7,12 +7,12 @@ const MenuPage=(props)=>{
         {props.menus.map((m)=>{
         return(
             <div>
-        {m.name}
-        <img src={m.menu_photo}></img>
-        <Food
-            categories={m.categories}
-        />
-        </div>
+                {m.name}
+                <img src={m.menu_photo}></img>
+            <Food
+                categories={m.categories}
+            />
+            </div>
             )
         })}
         </div>
