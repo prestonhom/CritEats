@@ -1,6 +1,11 @@
 .NavBar{
     background-color:red;
+    
 }
+
 .NavBar:hover{
     background-color:blue;
+}
+.logo{
+    font-family: 'Monoton', cursive;
 }

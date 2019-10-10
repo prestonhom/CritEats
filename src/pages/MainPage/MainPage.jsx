@@ -8,11 +8,10 @@ import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 const MainPage=(props)=>{
         return(
             <div>
-            <RestaurantList
-                restaurants={props.restaurants}
-                handleARestaurant={props.handleARestaurant}
-            
-            />
+                <RestaurantList
+                    restaurants={props.restaurants}
+                    handleARestaurant={props.handleARestaurant}
+                />
             
             </div>
         )

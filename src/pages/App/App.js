@@ -7,6 +7,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
 import RestaurantPage from '../RestaurantPage/RestaurantPage'
 import MenuList from '../../components/MenuList/MenuList'
+import MenuPage from '../../pages/MenuPage/MenuPage'
 import userService from '../../utils/userService';
 import tokenService from '../../utils/tokenService';
 import {getRestaurants} from '../../services/restaurant-api';
@@ -61,10 +62,11 @@ async componentDidMount(){
           <Route exact path='/restaurants' render={() =>(
              this.state.restaurants.length
              ?
-            <MainPage
-              restaurants={this.state.restaurants}
-    
-            />
+             
+              <MainPage
+                restaurants={this.state.restaurants}
+      
+              />
             :
             <h1>is Loading</h1>
           )}/>
@@ -72,13 +74,11 @@ async componentDidMount(){
             this.state.restaurants.length
             ?
             <div> 
-            <RestaurantPage
-              {...props}
-              restaurants={this.handleOneRestaurant}  
-              
-              // restaurants={this.state.restaurants}
-            />
-            
+             <RestaurantPage
+            {...props}
+            restaurants={this.handleOneRestaurant} 
+
+             />
             </div>
             :
             <h1>Loading</h1>

@@ -6,12 +6,12 @@ const Navigation=()=>{
     return (
     <>
     <Navbar className='NavBar' expand="lg">
-        <Navbar.Brand href="#home">CritEats</Navbar.Brand>
+        <Navbar.Brand className='logo' href="/restaurants">CritEats</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="/restaurants">Home</Nav.Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
+                    <Nav.Link className='links'href="/restaurants">Home</Nav.Link>
+                    <Nav.Link className='links' href="#link">Link</Nav.Link>
                     <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

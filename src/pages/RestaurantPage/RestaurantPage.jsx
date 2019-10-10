@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import MenuList from '../../components/MenuList/MenuList'
 import MenuPage from '../MenuPage/MenuPage'
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
-
+import RestaurantDetailCard from '../../components/MenuCard/MenuCard'
 
 class RestaurantPage extends Component{
     state = {
@@ -10,23 +10,16 @@ class RestaurantPage extends Component{
     }
     render(){
         return(
-        <div>
-                <RestaurantCard
-                    address={this.state.restaurant.address}
-                    name={this.state.restaurant.name}
-                />
-          
-        <div>
+            <div>
         MENU ITEMS 
+        <img style={{
+            'width':'100px',
+            'height':'100px'
+        }}
+        src={this.state.restaurant.restaurant_photo} alt='restaurant_photo'></img>
                 <MenuList
                     menus={this.state.restaurant.menus}
                 />
-        </div>
-            <img style={{
-                'width':'100px',
-                'height':'100px'
-                }}
-            src={this.state.restaurant.restaurant_photo} alt='restaurant_photo'></img>
         </div>
         )
     }
