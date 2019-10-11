@@ -17,7 +17,7 @@ class RestaurantPage extends Component{
             Back
         </Link>
             <MenuList
-                restaurant={this.props.restaurants(this.props.match.params.id)}
+                
                 menus={this.state.restaurant.menus}
             />
         </div>

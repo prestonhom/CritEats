@@ -91,13 +91,28 @@ async componentDidMount(){
             <h1>Loading</h1>
           }
           />
-            <Route exact path={'/restaurants/:id/menu/' } render={props=>
+            <Route exact path={'/restaurants/:id/menu' } render={props=>
             this.state.restaurants.length
             ?
             <div> 
-             <MenuList
+             <RestaurantPage
              {...props}
-             restaurant={this.state.handleOneRestaurant}
+             restaurants={this.handleOneRestaurant}
+             
+             />
+             
+            </div>
+            :
+            <h1>Loading</h1>
+          }
+          />
+            <Route exact path={'/restaurants/:id/menu/:id' } render={props=>
+            this.state.restaurants.length
+            ?
+            <div> 
+             <RestaurantPage
+             {...props}
+             restaurants={this.handleOneRestaurant}
              
              />
              

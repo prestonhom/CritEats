@@ -18,7 +18,10 @@ const MenuCard=(props)=>{
                 <Card.Text className='card-text'>
                 <a href={props.to}>YO{props.adress}</a>
                 </Card.Text>
-                <Button variant="primary">See all Reviews for this menu item</Button>
+
+                <Button 
+                variant="primary"
+                >See all Reviews for this menu item</Button>
             </Card.Body>
         </Card>
     )

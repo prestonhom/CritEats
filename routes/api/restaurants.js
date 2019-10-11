@@ -8,6 +8,7 @@ router.get('/', restaurantsCtrl.index)
 
 
 
+
 /*---------- Protected Routes ----------*/
 
 module.exports = router;

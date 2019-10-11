@@ -22,6 +22,7 @@ class Food extends Component{
                                         name={s.name}
                                         foodPhoto={s.food_photo}
                                     />
+
                                 </div>
                             )
                         })}
