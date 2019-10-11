@@ -42,8 +42,13 @@ class Navigation extends Component{
         }} />
         <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link className='links'href="/">Home</Nav.Link>
-                    <Nav.Link className='links' href="#link">Link</Nav.Link>
+                    <Nav.Link className='links'href="/"style={{
+                        color:'white'
+                    }}>Home</Nav.Link>
+                    <Nav.Link className='links' href="/restaurants"
+                    style={{
+                        color:'white'
+                    }}>Restaurants</Nav.Link>
                     <Dropdown 
                         className="d-inline-block" 
                         onMouseOver={this.onMouseEnter} 

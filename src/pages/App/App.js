@@ -50,20 +50,21 @@ async componentDidMount(){
           <Route exact path='/' render={() =>(
             <div>
                 <form className='form'>
-
-                  SEARCH RESTAURANTS
+                  
                   <img className='rightArrow' src='../../images/rightarrow.svg' style={{
                     width:'2rem',
                     height:'2rem'
-                  }}></img>
-                  <input type='text' placeholder='SEARCH'></input>
-                </form>
-            <img src='../../images/norma2d.png' style={{
-                width:'100%',
-                height:'100%',
-                position:'absolute'
-              }}/>
-        
+                    }}>
+                  </img>
+                  <input type='text'className='rightArrow' placeholder='SEARCH'></input>
+                  </form>
+                <img src='../../images/norma2d.png' 
+                  style={{
+                  width:'100%',
+                  height:'100%',
+                  position:'absolute'
+                  }}
+                />
             </div>
           )}/>
           <Route exact path='/restaurants' render={() =>(

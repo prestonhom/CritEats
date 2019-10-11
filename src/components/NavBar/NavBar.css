@@ -1,6 +1,8 @@
 .NavBar{
     background:black;
+    
 }
+
 
 .NavBar:hover{
     background-color:rgb(255,0,212)

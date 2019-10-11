@@ -3,8 +3,13 @@
   background:black;
   color:pink;
   display:flex;
-  justify-content:space-evenly;
+  justify-content:flex-start;
   
+}
+
+.form input{
+  border-radius:5px;
+  box-shadow: 50px white;
 }
 
 .form input[type='text']:hover{
@@ -12,9 +17,8 @@
   border-radius: 5px;
 }
 
-
 img.rightArrow{
-    
+    width:70%;
   -webkit-animation: 3s linear infinite condemned_blink_effect; 
   animation: 1.5s linear infinite condemned_blink_effect;
 
