@@ -1,5 +1,5 @@
 import React from 'react';
-import Food from '../../components/Food/Food'
+import Category from '../../components/Category/Category'
 import {Container, Row} from 'react-bootstrap'
 import MenuCard from '../../components/MenuCard/MenuCard'
 
@@ -14,10 +14,12 @@ const MenuPage=(props)=>{
                 <MenuCard
                     name={m.name}
                     menuPhoto={m.menu_photo}
+                    
+                    
                 />
-                {/* <Food
+                <Category
                 categories={m.categories}
-                /> */}
+                />
             </div>
             )
         })}

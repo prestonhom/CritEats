@@ -11,8 +11,9 @@ const RestaurantList=(props)=>{
          <Row>
          {props.restaurants.map((s,idx)=>{
                return(
-                  
+            
                   <RestaurantCard  
+
                      to={`/restaurants/${idx}`}
                      idx={`${idx}`}
                      key={idx}
@@ -21,8 +22,7 @@ const RestaurantList=(props)=>{
                      address={s.address}
                      description={s.description}
                   />
-                  
-                  
+   
                )              
             })
          }

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import MenuList from '../../components/MenuList/MenuList'
 import MenuPage from '../MenuPage/MenuPage'
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
@@ -10,13 +11,11 @@ class RestaurantPage extends Component{
     }
     render(){
         return(
-            <div>
-        MENU ITEMS 
-        <img style={{
-            'width':'100px',
-            'height':'100px'
-        }}
-        src={this.state.restaurant.restaurant_photo} alt='restaurant_photo'></img>
+        <div>
+        MENU CATEGORIES
+        <Link to='/restaurants/'>
+            Bac
+        </Link>
                 <MenuList
                     menus={this.state.restaurant.menus}
                 />

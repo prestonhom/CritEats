@@ -1,10 +1,16 @@
-const User = require('../models/user')
-const Review = require('./models/review')
+// const User = require('../models/user')
+// const Restaurant = require('../models/restaurant')
+// const Menu = require('../models/restaurant')
+// const Review = require('./models/review')
 
-module.exports = {
-    index
-}
+// module.exports = {
+//     index,
+//     // create,
+//     // update,
+//     // delete
+// }
 
-const index=(req,res)=>{
-    return res.render()
-}
+// async function index(req, res) {
+//     Restaurant.findById({_id:req.params.id})
+//     Menu.findById({{},
+// }

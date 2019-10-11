@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../models/restaurant');
+const db = require('../models/restaurant.js');
 
 module.exports = {
     index
@@ -10,4 +10,3 @@ async function index(req,res){
     return res.status(200).json(restaurant);
 }
    
-

@@ -1,10 +1,9 @@
 import React from 'react';
 import {Card,Button,Row} from 'react-bootstrap'
-import './RestaurantCard.css'
 
-const RestaurantCard=(props)=>{
+
+const FoodCard=(props)=>{
     return(
-        
         <Card style={{ 
             width: '18rem',
             margin:'2% 3%',
@@ -13,7 +12,7 @@ const RestaurantCard=(props)=>{
              }} >
             <Card.Img 
                 variant="top" 
-                src={props.photo}  
+                src={props.foodPhoto}  
                 style={{
                     'width':'100%',
                     'height':'10rem'
@@ -25,13 +24,10 @@ const RestaurantCard=(props)=>{
             }} >
             <Card.Title className='card-title'>{props.name}</Card.Title>
             <Card.Text className='card-text'>
-                <a href={props.to}>Menu</a>
             </Card.Text>
             <Card.Text className='card-text'>
-                {props.address}
             </Card.Text>
             <Card.Text className='card-text'>
-                {props.description}
             </Card.Text>
             <Button variant="primary">Go somewhere</Button>
             </Card.Body>
@@ -40,5 +36,4 @@ const RestaurantCard=(props)=>{
     )
 }
 
-export default RestaurantCard;
-
+export default FoodCard;

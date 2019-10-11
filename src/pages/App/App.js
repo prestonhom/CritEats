@@ -45,19 +45,18 @@ async componentDidMount(){
     
     return (
       <div>
-        
         <Switch>
           <Route exact path='/' render={() =>(
             <div>
                 <form className='form'>
                   
-                  <img className='rightArrow' src='../../images/rightarrow.svg' style={{
-                    width:'2rem',
-                    height:'2rem'
-                    }}>
-                  </img>
-                  <input type='text'className='rightArrow' placeholder='SEARCH'></input>
-                  </form>
+                <img className='rightArrow' src='../../images/rightarrow.svg' style={{
+                  width:'2rem',
+                  height:'2rem'
+                  }}>
+                </img>
+                <input type='text'className='rightArrow' placeholder='SEARCH'></input>
+                </form>
                 <img src='../../images/norma2d.png' 
                   style={{
                   width:'100%',
@@ -77,7 +76,7 @@ async componentDidMount(){
             :
             <h1>is Loading</h1>
           )}/>
-          <Route exact path={'/restaurants/:id'} render={props=>
+          <Route exact path={'/restaurants/:id' } render={props=>
             this.state.restaurants.length
             ?
             <div> 
@@ -91,6 +90,21 @@ async componentDidMount(){
             <h1>Loading</h1>
           }
           />
+            <Route exact path={'/restaurants/:id/menu' } render={props=>
+            this.state.restaurants.length
+            ?
+            <div> 
+             <RestaurantPage
+            {...props}
+            restaurants={this.handleOneRestaurant} 
+
+             />
+            </div>
+            :
+            <h1>Loading</h1>
+          }
+          />
+          
         
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage

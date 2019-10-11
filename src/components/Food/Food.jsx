@@ -1,19 +1,33 @@
-import React from 'react';
+import React, {Component} from 'react';
+import FoodCard from '../FoodCard/FoodCard'
+import {Container,Row} from 'react-bootstrap'
 
-const Food=(props)=>{
-    return(
-        <div>
-        {props.categories.map((s)=>{
-            return(
-                <div>
-                    THIS IS name of {s.id},{s.name},
-                    <img src={s.foods[0].food_photo}></img>
-                    This is the description of the food{s.description}
-                </div>
-            )
-        })}
-        </div>
-    )
+class Food extends Component{
+    state = {
+        food: this.props.category_id
+    }
+
+    render(){ 
+        return(
+            <Container>
+                <Row>
+                    <div>
+                        {this.state.food.map((s)=>{
+                            
+                            return(
+                                <div> 
+                                    <FoodCard
+                                        name={s.name}
+                                        foodPhoto={s.food_photo}
+                                    />
+                                </div>
+                            )
+                        })}
+                    </div>
+                </Row>
+            </Container>
+        )
+    }
 }
 
-export default Food
+export default Food;

@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
 const SALT_ROUNDS = 6;
 
-const reviewSchema = new Schema({
+const reviewSchema = new mongoose.Schema({
   stars: Number,
   description: String,
-  date: Date.now()
 })
 
 const userSchema = new mongoose.Schema({
@@ -17,7 +15,7 @@ const userSchema = new mongoose.Schema({
     lowercase: true, 
     unique: true},
     password: String,
-    reviews  = [reviewSchema]
+    reviews:[reviewSchema]
 }, {
   timestamps: true
 });
