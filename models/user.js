@@ -3,6 +3,12 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
+const reviewSchema = new Schema({
+  stars: Number,
+  description: String,
+  date: Date.now()
+})
+
 const userSchema = new mongoose.Schema({
   name: String,
   email: {
@@ -10,7 +16,8 @@ const userSchema = new mongoose.Schema({
     required: true, 
     lowercase: true, 
     unique: true},
-  password: String
+    password: String,
+    reviews  = [reviewSchema]
 }, {
   timestamps: true
 });
