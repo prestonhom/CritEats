@@ -4,39 +4,52 @@ import './RestaurantCard.css'
 
 const RestaurantCard=(props)=>{
     return(
-        
+        <div
+        style={{
+            boxShadow:'10px 10px rgb(255,118,228)',
+            margin:'20px',
+            maxHeight:'20rem'
+
+        }}>
         <Card style={{ 
             width: '18rem',
             margin:'2% 3%',
             height:'20rem',
-            boxShadow:'5px 5px white'
+            
              }} >
             <Card.Img 
                 variant="top" 
                 src={props.photo}  
                 style={{
                     'width':'100%',
-                    'height':'10rem'
+                    'height':'40%'
                 }}/>
             <Card.Body className='card-body' style={{
                 backgroundColor:'pink',
                 padding:0,
+                height:'60%'
                 
             }} >
-            <Card.Title className='card-title'>{props.name}</Card.Title>
+            <Card.Title className='card-title' 
+                style={{
+                fontSize:'120%',
+                textAlign:'center',
+                
+            }}
+            >{props.name}</Card.Title>
             <Card.Text className='card-text'>
                 <a href={props.to}>Menu</a>
             </Card.Text>
             <Card.Text className='card-text'>
-                {props.address}
+                {props.address} {props.zipcode}
             </Card.Text>
             <Card.Text className='card-text'>
-                {props.description}
+                {props.phone}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
             </Card.Body>
+            <Button variant="primary">Go somewhere</Button>
         </Card>
-    
+    </div>
     )
 }
 

@@ -21,6 +21,8 @@ const RestaurantList=(props)=>{
                      photo={s.restaurant_photo}
                      address={s.address}
                      description={s.description}
+                     zipcode={s.zipcode}
+                     phone={s.phone}
                   />
    
                )              

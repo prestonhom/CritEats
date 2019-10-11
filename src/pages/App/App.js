@@ -8,6 +8,7 @@ import MainPage from '../MainPage/MainPage';
 import RestaurantPage from '../RestaurantPage/RestaurantPage'
 import MenuList from '../../components/MenuList/MenuList'
 import MenuPage from '../../pages/MenuPage/MenuPage'
+import MenuCard from '../../components/MenuCard/MenuCard'
 import userService from '../../utils/userService';
 import tokenService from '../../utils/tokenService';
 import {getRestaurants} from '../../services/restaurant-api';
@@ -33,6 +34,10 @@ class App extends Component {
     console.log(this.state.restaurants[id].menus)
     return (this.state.restaurants[id])
   }
+  handleOneRestaurantMenu=(id)=>{
+    return(this.handleOneRestaurant(id).menus)
+  }
+  
 
 async componentDidMount(){
     const restaurant = await getRestaurants();
@@ -94,9 +99,12 @@ async componentDidMount(){
             this.state.restaurants.length
             ?
             <div> 
-             <RestaurantPage
-            {...props}
-            restaurants={this.handleOneRestaurant} 
+             <MenuList
+             {...props}
+             restaurant={this.handleOneRestaurant}
+             restaurantMenu={this.handleOneRestaurantMenu}
+             
+             />
 
              />
             </div>
