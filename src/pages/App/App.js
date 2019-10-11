@@ -35,7 +35,8 @@ class App extends Component {
     return (this.state.restaurants[id])
   }
   handleOneRestaurantMenu=(id)=>{
-    return(this.handleOneRestaurant(id).menus)
+
+    return(this.handleOneRestaurant[id].menus)
   }
   
 
@@ -74,7 +75,6 @@ async componentDidMount(){
           <Route exact path='/restaurants' render={() =>(
              this.state.restaurants.length
              ?
-             
               <MainPage
                 restaurants={this.state.restaurants}
               />
@@ -88,25 +88,22 @@ async componentDidMount(){
              <RestaurantPage
             {...props}
             restaurants={this.handleOneRestaurant} 
-
              />
             </div>
             :
             <h1>Loading</h1>
           }
           />
-            <Route exact path={'/restaurants/:id/menu' } render={props=>
+            <Route exact path={'/restaurants/:id/menu/' } render={props=>
             this.state.restaurants.length
             ?
             <div> 
-             <MenuList
+             <MenuPage
              {...props}
              restaurant={this.handleOneRestaurant}
              restaurantMenu={this.handleOneRestaurantMenu}
+             />
              
-             />
-
-             />
             </div>
             :
             <h1>Loading</h1>

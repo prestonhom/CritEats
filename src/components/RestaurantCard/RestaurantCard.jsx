@@ -25,7 +25,7 @@ const RestaurantCard=(props)=>{
                     'height':'40%'
                 }}/>
             <Card.Body className='card-body' style={{
-                backgroundColor:'pink',
+                backgroundColor:'black',
                 padding:0,
                 height:'60%'
                 
@@ -34,20 +34,32 @@ const RestaurantCard=(props)=>{
                 style={{
                 fontSize:'120%',
                 textAlign:'center',
+                backgroundColor:'rgb(255,118,228)'
                 
             }}
-            >{props.name}</Card.Title>
-            <Card.Text className='card-text'>
-                <a href={props.to}>Menu</a>
-            </Card.Text>
-            <Card.Text className='card-text'>
-                {props.address} {props.zipcode}
-            </Card.Text>
-            <Card.Text className='card-text'>
-                {props.phone}
-            </Card.Text>
+            >{props.name}
+            
+            </Card.Title>
+                <Card.Text className='card-text'>
+                    <img src='../../images/addressIcon.svg'/>
+                    {props.address} 
+                    {props.zipcode}
+                </Card.Text>
+                <Card.Text className='card-text'>
+                <img src='../../images/phoneIcon.svg'/>
+                    {props.phone}
+                </Card.Text>
             </Card.Body>
-            <Button variant="primary">Go somewhere</Button>
+            <Button 
+            variant="primary"
+            style={{
+                backgroundColor:'rgb(255,118,228)',
+            }}
+            >                    
+            <a href={props.to} style={{
+                color:'white'
+            }}>Menu</a>
+            </Button>
         </Card>
     </div>
     )
