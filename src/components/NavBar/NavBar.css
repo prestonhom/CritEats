@@ -1,11 +1,11 @@
 .NavBar{
-    background-color:red;
-    
+    background:black;
 }
 
 .NavBar:hover{
-    background-color:blue;
+    background-color:rgb(255,0,212)
 }
-.logo{
-    font-family: 'Monoton', cursive;
+
+.NavDropdown:hover {
+    display: block;
 }

@@ -13,6 +13,7 @@ import tokenService from '../../utils/tokenService';
 import {getRestaurants} from '../../services/restaurant-api';
 
 
+
 class App extends Component {
   constructor() {
     super();
@@ -46,18 +47,15 @@ async componentDidMount(){
   render() {
     return (
       <div>
-        <header className='header-footer'>CRITEATS</header>
         <Switch>
-          
           <Route exact path='/' render={() =>(
-            this.state.restaurants.length
-            ?
-            <MainPage
-              restaurants={this.state.restaurants}
-    
-            />
-            :
-            <h1>is Loading</h1>
+            <div>
+            <img src='../../images/norma2d.png' style={{
+              width:'100%',
+              height:'100%'  
+            }}/>
+
+            </div>
           )}/>
           <Route exact path='/restaurants' render={() =>(
              this.state.restaurants.length
@@ -65,7 +63,7 @@ async componentDidMount(){
              
               <MainPage
                 restaurants={this.state.restaurants}
-      
+
               />
             :
             <h1>is Loading</h1>
