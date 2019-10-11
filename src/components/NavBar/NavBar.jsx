@@ -1,14 +1,40 @@
-import React from "react";
+import React, {Component} from "react";
 import {Navbar, Nav, NavDropdown,Button} from 'react-bootstrap';
 import './NavBar.css'
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 
-const Navigation=()=>{
+class Navigation extends Component{
+    constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.onMouseEnter = this.onMouseEnter.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
+        this.state = {
+          dropdownOpen: false
+        };
+      }
+      toggle() {
+        this.setState(prevState => ({
+          dropdownOpen: !prevState.dropdownOpen
+        }));
+      }
+    
+      onMouseEnter() {
+        this.setState({dropdownOpen: true});
+      }
+    
+      onMouseLeave() {
+        this.setState({dropdownOpen: false});
+      }
+    
+    render(){
     return (
     <>
     <Navbar className='NavBar' expand="lg">
         <Navbar.Brand className='logo' href="/restaurants" style={{
             color:'pink',
+            fontFamily: 'Monoton , cursive'
         }}>C r i t e a t S</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" style={{
             backgroundColor:`pink`,
@@ -18,18 +44,29 @@ const Navigation=()=>{
                 <Nav className="mr-auto">
                     <Nav.Link className='links'href="/restaurants">Home</Nav.Link>
                     <Nav.Link className='links' href="#link">Link</Nav.Link>
-                    <NavDropdown  title="hello" id="basic-nav-dropdown" className='NavDropdown'>
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
+                    <Dropdown 
+                        className="d-inline-block" 
+                        onMouseOver={this.onMouseEnter} 
+                        onMouseLeave={this.onMouseLeave} 
+                        isOpen={this.state.dropdownOpen} 
+                        toggle={this.toggle}>
+                    <DropdownToggle >
+                            Search
+                    </DropdownToggle>
+                        <DropdownMenu>
+                        <DropdownItem header>Header</DropdownItem>
+                        <DropdownItem disabled>Action</DropdownItem>
+                        <DropdownItem>Another Action</DropdownItem>
+                        <DropdownItem divider />
+                        <DropdownItem>Another Action</DropdownItem>
+                        </DropdownMenu>
+                </Dropdown>
                  </Nav>
                     <Button variant="outline-success">Search</Button>
         </Navbar.Collapse>
     </Navbar>
     </>
-)
+        )   
+    }
 }
 export default Navigation;
