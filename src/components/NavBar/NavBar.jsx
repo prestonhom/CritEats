@@ -42,7 +42,7 @@ class Navigation extends Component{
         }} />
         <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link className='links'href="/restaurants">Home</Nav.Link>
+                    <Nav.Link className='links'href="/">Home</Nav.Link>
                     <Nav.Link className='links' href="#link">Link</Nav.Link>
                     <Dropdown 
                         className="d-inline-block" 

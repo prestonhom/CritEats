@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Form,Button,FormGroup, Group } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link, Route, Switch, Redirect } from 'react-router-dom';
@@ -11,9 +11,6 @@ import MenuPage from '../../pages/MenuPage/MenuPage'
 import userService from '../../utils/userService';
 import tokenService from '../../utils/tokenService';
 import {getRestaurants} from '../../services/restaurant-api';
-
-
-
 class App extends Component {
   constructor() {
     super();
@@ -45,16 +42,28 @@ async componentDidMount(){
     }) 
   }
   render() {
+    
     return (
       <div>
+        
         <Switch>
           <Route exact path='/' render={() =>(
             <div>
-            <img src='../../images/norma2d.png' style={{
-              width:'100%',
-              height:'100%'  
-            }}/>
+                <form className='form'>
 
+                  SEARCH RESTAURANTS
+                  <img className='rightArrow' src='../../images/rightarrow.svg' style={{
+                    width:'2rem',
+                    height:'2rem'
+                  }}></img>
+                  <input type='text' placeholder='SEARCH'></input>
+                </form>
+            <img src='../../images/norma2d.png' style={{
+                width:'100%',
+                height:'100%',
+                position:'absolute'
+              }}/>
+        
             </div>
           )}/>
           <Route exact path='/restaurants' render={() =>(
@@ -63,7 +72,6 @@ async componentDidMount(){
              
               <MainPage
                 restaurants={this.state.restaurants}
-
               />
             :
             <h1>is Loading</h1>

@@ -1,24 +1,42 @@
-.App {
-  text-align: center;
+.form{
+  text-align:center;
+  background:black;
+  color:pink;
+  display:flex;
+  justify-content:space-evenly;
+  
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.form input[type='text']:hover{
+  background:pink;
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+
+img.rightArrow{
+    
+  -webkit-animation: 3s linear infinite condemned_blink_effect; 
+  animation: 1.5s linear infinite condemned_blink_effect;
+
 }
 
-.App-intro {
-  font-size: large;
+@keyframes condemned_blink_effect {
+0% {
+visibility: hidden;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+25% {
+visibility: hidden;
+color: yellow;
+text-shadow: 2px 2px white;
+}
+50% {
+visibility: hidden;
+color:red;
+text-shadow: 2px 2px white;
+}
+100% {
+visibility: visible;
+color:orange;
+text-shadow: 2px 2px white;
+}
 }
