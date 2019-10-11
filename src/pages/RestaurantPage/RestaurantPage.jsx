@@ -14,11 +14,12 @@ class RestaurantPage extends Component{
         <div>
         MENU CATEGORIES
         <Link to='/restaurants/'>
-            Bac
+            Back
         </Link>
-                <MenuList
-                    menus={this.state.restaurant.menus}
-                />
+            <MenuList
+                restaurant={this.props.restaurants(this.props.match.params.id)}
+                menus={this.state.restaurant.menus}
+            />
         </div>
         )
     }

@@ -30,14 +30,11 @@ class App extends Component {
   }
 
   handleOneRestaurant=(id)=>{
-    console.log('testttttttt')
-    console.log(this.state.restaurants[id].menus)
+    // console.log('testttttttt')
+    // console.log(this.state.restaurants[id].menus)
     return (this.state.restaurants[id])
   }
-  handleOneRestaurantMenu=(id)=>{
 
-    return(this.handleOneRestaurant[id].menus)
-  }
   
 
 async componentDidMount(){
@@ -98,10 +95,10 @@ async componentDidMount(){
             this.state.restaurants.length
             ?
             <div> 
-             <MenuPage
+             <MenuList
              {...props}
-             restaurant={this.handleOneRestaurant}
-             restaurantMenu={this.handleOneRestaurantMenu}
+             restaurant={this.state.handleOneRestaurant}
+             
              />
              
             </div>
