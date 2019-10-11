@@ -55,7 +55,10 @@ class Navigation extends Component{
                         onMouseLeave={this.onMouseLeave} 
                         isOpen={this.state.dropdownOpen} 
                         toggle={this.toggle}>
-                    <DropdownToggle >
+                    <DropdownToggle style={{
+                        border:'black',
+                        backgroundColor:'black'
+                    }}>
                             Search
                     </DropdownToggle>
                         <DropdownMenu>

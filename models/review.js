@@ -8,6 +8,11 @@ const reviewSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    menu:{
+        type:Schema.Types.ObjectId,
+        ref:'Menu'
+    },
+    stars: Number,
     description: String,
     date: Date.now()
 })
