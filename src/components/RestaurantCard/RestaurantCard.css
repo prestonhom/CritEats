@@ -1,6 +1,7 @@
 .card-body{
     display:flex;
     flex-direction:column;
+
 }
 .card-title{
     font-size:100%;
@@ -8,5 +9,18 @@
 
 
 .card-text{
+    margin:0 1px;
+    font-size:85%;
     background-color:black;
+}
+.menu-word{
+    color:white;
+}
+.menu-button{
+    background:rgb(255,118,228);
+}
+.menu-button:hover{
+    background:cyan;
+    color:teal;
+    border-radius: 20px;
 }

@@ -11,22 +11,22 @@ class Navigation extends Component{
         this.onMouseEnter = this.onMouseEnter.bind(this);
         this.onMouseLeave = this.onMouseLeave.bind(this);
         this.state = {
-          dropdownOpen: false
-        };
-      }
-      toggle() {
-        this.setState(prevState => ({
-          dropdownOpen: !prevState.dropdownOpen
-        }));
-      }
-    
-      onMouseEnter() {
-        this.setState({dropdownOpen: true});
-      }
-    
-      onMouseLeave() {
-        this.setState({dropdownOpen: false});
-      }
+        dropdownOpen: false
+    };
+    }
+    toggle() {
+    this.setState(prevState => ({
+        dropdownOpen: !prevState.dropdownOpen
+    }));
+    }
+
+    onMouseEnter() {
+    this.setState({dropdownOpen: true});
+    }
+
+    onMouseLeave() {
+    this.setState({dropdownOpen: false});
+    }
     
     render(){
     return (
@@ -59,21 +59,23 @@ class Navigation extends Component{
                         onMouseLeave={this.onMouseLeave} 
                         isOpen={this.state.dropdownOpen} 
                         toggle={this.toggle}>
-                    <DropdownToggle style={{
-                        border:'black',
-                        backgroundColor:'black'
+                    <DropdownToggle caret
+                        style={{
+                        fontSize:'90%',
+                        border:'none',
+                        backgroundColor:''    
                     }}>
-                            Search
+                        Search
                     </DropdownToggle>
                         <DropdownMenu>
-                        <DropdownItem header>Header</DropdownItem>
-                        <DropdownItem disabled>Action</DropdownItem>
-                        <DropdownItem>Another Action</DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem>Another Action</DropdownItem>
+                            <DropdownItem header>Header</DropdownItem>
+                            <DropdownItem disabled>Action</DropdownItem>
+                            <DropdownItem>Another Action</DropdownItem>
+                            <DropdownItem divider />
+                            <DropdownItem>Another Action</DropdownItem>
                         </DropdownMenu>
-                </Dropdown>
-                 </Nav>
+                    </Dropdown>
+                </Nav>
                     <Button variant="outline-success">Search</Button>
         </Navbar.Collapse>
     </Navbar>

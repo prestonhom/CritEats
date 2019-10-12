@@ -37,7 +37,6 @@ class App extends Component {
   handleOneMenu=(id)=>{
     return(this.state.restaurants.menus[id])
   }
-  
 
 async componentDidMount(){
     const restaurant = await getRestaurants();
@@ -54,7 +53,6 @@ async componentDidMount(){
           <Route exact path='/' render={() =>(
             <div>
                 <form className='form'>
-                  
                 <img className='rightArrow' src='../../images/rightarrow.svg' style={{
                   width:'2rem',
                   height:'2rem'

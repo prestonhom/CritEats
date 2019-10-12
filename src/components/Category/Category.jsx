@@ -8,10 +8,8 @@ const Category=(props)=>{
         {props.categories.map((s)=>{
             return(
                 <div>
-                    
                     THIS IS name of {s.id},{s.name},
                    <Food 
-                    
                     category_foods={s.foods}
                    />
                 </div>

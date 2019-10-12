@@ -10,7 +10,6 @@ const MenuPage=(props)=>{
         <div>
             <Row>
         {props.menus.map((m)=>{
-        
         return(
             <div>
                 <MenuCard

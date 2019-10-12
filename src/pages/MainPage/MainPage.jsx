@@ -12,7 +12,6 @@ const MainPage=(props)=>{
                     restaurants={props.restaurants}
                     handleARestaurant={props.handleARestaurant}
                 />
-            
             </div>
         )
 }

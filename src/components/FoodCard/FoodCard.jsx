@@ -20,7 +20,6 @@ const FoodCard=(props)=>{
             <Card.Body className='card-body' style={{
                 backgroundColor:'black',
                 padding:0,
-                
             }} >
             <Card.Title className='card-title'>{props.name}</Card.Title>
             <Card.Text className='card-text'>
