@@ -10,7 +10,7 @@ const AboutPage =()=>{
                 textShadow:'1px 1px',
                 color:'pink'
             }}>
-                C&nbsp; R &nbsp; I&nbsp; T &nbsp;E &nbsp;A&nbsp; T &nbsp;S 
+                A&nbsp; B &nbsp; O&nbsp; U &nbsp;T 
             </h1>
             <hr></hr>
             <p>
