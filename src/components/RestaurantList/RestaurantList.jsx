@@ -9,22 +9,15 @@ import {Container, Row} from 'react-bootstrap';
 const RestaurantList=(props)=>{
    return(
       <Container>  
-         <h1>&nbsp; from our friends at &nbsp;  &nbsp;
-            <img 
-               className='rightArrow' 
-               src='../../images/rightarrow.svg' 
-               style={{
-               width:'2rem',
-               height:'2rem'
-            }}/>
-               &nbsp; &nbsp; 
-               <a href='http://menunav.herokuapp.com/' 
-               style={{
-               color:'pink'
+         <h1 style={{
+                textAlign:'center',
+                fontFamily: 'Monoton, cursive',
+                textShadow:'1px 1px',
+                color:'pink'
             }}>
-               TASTY🔥
-               </a>
-         </h1>
+                RESTAURANTS 
+            </h1>
+         
          <Row>
          {props.restaurants.map((s,idx)=>{
                return(
@@ -44,6 +37,22 @@ const RestaurantList=(props)=>{
             })
          }
          </Row>
+         <h1>&nbsp; from our friends at &nbsp;  &nbsp;
+            <img 
+               className='rightArrow' 
+               src='../../images/rightarrow.svg' 
+               style={{
+               width:'2rem',
+               height:'2rem'
+            }}/>
+               &nbsp; &nbsp; 
+               <a href='http://menunav.herokuapp.com/' 
+               style={{
+               color:'pink'
+            }}>
+               TASTY🔥
+               </a>
+         </h1>
       </Container>
    )  
 }
