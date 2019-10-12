@@ -65,13 +65,14 @@ const RestaurantCard=(props)=>{
                     </Card.Text>
             <Button 
             className='menu-button'
-            variant="primary"
+            variant="link"
+            href={props.to}
             >                    
-                <a 
-                href={props.to} 
-                className='menu-word'>
+                <span className='menu-word' style={{
+                    backgroundColor:'transparent'
+                }}>
                     Menu
-                </a>
+                </span>
             </Button>
             </Card.Body>
         </Card>

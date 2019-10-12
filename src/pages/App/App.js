@@ -5,6 +5,7 @@ import {Link, Route, Switch, Redirect } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
+import AboutPage from '../AboutPage/AboutPage';
 import RestaurantPage from '../RestaurantPage/RestaurantPage'
 import MenuList from '../../components/MenuList/MenuList'
 import MenuPage from '../../pages/MenuPage/MenuPage'
@@ -18,6 +19,7 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       restaurants: [],
+      lightMode: false
     };
   }
   handleLogout = () => {
@@ -37,6 +39,7 @@ class App extends Component {
   handleOneMenu=(id)=>{
     return(this.state.restaurants.menus[id])
   }
+
 
 async componentDidMount(){
     const restaurant = await getRestaurants();
@@ -154,6 +157,10 @@ async componentDidMount(){
           />
           
         
+          <Route exact path='/about' render={( ) => 
+            <AboutPage
+            />
+          }/>
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
               history={history}
