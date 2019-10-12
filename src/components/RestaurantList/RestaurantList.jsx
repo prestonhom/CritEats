@@ -13,7 +13,6 @@ const RestaurantList=(props)=>{
                return(
             
                   <RestaurantCard  
-
                      to={`/restaurants/${idx}`}
                      idx={`${idx}`}
                      key={idx}

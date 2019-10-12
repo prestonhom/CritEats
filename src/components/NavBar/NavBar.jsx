@@ -49,6 +49,10 @@ class Navigation extends Component{
                     style={{
                         color:'white'
                     }}>Restaurants</Nav.Link>
+                    <Nav.Link className='links' href="/restaurants/"
+                    style={{
+                        color:'white'
+                    }}>Restaurants</Nav.Link>
                     <Dropdown 
                         className="d-inline-block" 
                         onMouseOver={this.onMouseEnter} 

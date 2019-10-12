@@ -7,7 +7,7 @@ const MenuCard=(props)=>{
         <Card style={{ 
             width: '18rem',
             margin:'20px'
-             }} >
+            }} >
             <Card.Img variant="top" src={props.menuPhoto}  
                     style={{
                         'width':'100%',
@@ -18,7 +18,6 @@ const MenuCard=(props)=>{
                 <Card.Text className='card-text'>
                 <a href={props.to}>YO{props.adress}</a>
                 </Card.Text>
-
                 <Button 
                 variant="primary"
                 >See all Reviews for this menu item</Button>

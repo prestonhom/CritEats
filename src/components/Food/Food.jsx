@@ -6,7 +6,7 @@ import {Container,Row} from 'react-bootstrap'
 
 class Food extends Component{
     state = {
-        food: this.props.category_id
+        food: this.props.category_foods
     }
 
     render(){ 
@@ -15,14 +15,14 @@ class Food extends Component{
                 <Row>
                     <div>
                         {this.state.food.map((s)=>{
-                            
+    
                             return(
                                 <div> 
                                     <FoodCard
+                                        id={s.id}
                                         name={s.name}
                                         foodPhoto={s.food_photo}
                                     />
-
                                 </div>
                             )
                         })}

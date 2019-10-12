@@ -4,12 +4,19 @@ const Menu = require('../models/restaurant')
 const Review = require('./models/review')
 
 module.exports = {
-    index,
-    create,
-    delete
+    createReview,
+    
 }
 
-async function index(req, res) {
-    Restaurant.findById({_id:req.params.id})
-    Menu.findById({{},
+function createReview (req, res){
+    const review = new Review(req.body)
+    try {
+     review.save();
+      } 
+      catch (err) {
+        res.status(400).json(err);
+      }
+
+
+
 }

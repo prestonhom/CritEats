@@ -11,7 +11,8 @@ const Category=(props)=>{
                     
                     THIS IS name of {s.id},{s.name},
                    <Food 
-                    category_id={s.foods}
+                    
+                    category_foods={s.foods}
                    />
                 </div>
             )
