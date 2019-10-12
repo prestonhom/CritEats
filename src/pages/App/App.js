@@ -34,7 +34,9 @@ class App extends Component {
     // console.log(this.state.restaurants[id].menus)
     return (this.state.restaurants[id])
   }
-
+  handleOneMenu=(id)=>{
+    return(this.state.restaurants.menus[id])
+  }
   
 
 async componentDidMount(){
@@ -107,6 +109,22 @@ async componentDidMount(){
           }
           />
             <Route exact path={'/restaurants/:id/menu/:id' } render={props=>
+            this.state.restaurants.length
+            ?
+            <div> 
+             <RestaurantPage
+             {...props}
+             restaurants={this.handleOneRestaurant}
+             
+             />
+             
+            </div>
+            :
+            <h1>Loading</h1>
+          }
+          />
+          
+          <Route exact path={'/restaurants/:id/menu/:id/reviews' } render={props=>
             this.state.restaurants.length
             ?
             <div> 

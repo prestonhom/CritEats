@@ -15,7 +15,6 @@ const RestaurantCard=(props)=>{
             width: '18rem',
             margin:'2% 3%',
             height:'20rem',
-            
              }} >
             <Card.Img 
                 variant="top" 

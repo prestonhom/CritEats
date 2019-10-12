@@ -18,7 +18,7 @@ const FoodCard=(props)=>{
                     'height':'10rem'
                 }}/>
             <Card.Body className='card-body' style={{
-                backgroundColor:'pink',
+                backgroundColor:'black',
                 padding:0,
                 
             }} >
@@ -29,7 +29,10 @@ const FoodCard=(props)=>{
             </Card.Text>
             <Card.Text className='card-text'>
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="primary"
+            style={{
+                backgroundColor: 'rgb(255,118,228)'
+            }}>Go somewhere</Button>
             </Card.Body>
         </Card>
     
