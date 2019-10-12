@@ -1,0 +1,20 @@
+@keyframes condemned_blink_effect {
+    0% {
+      visibility: hidden;
+    }
+    25% {
+      visibility: hidden;
+      color: yellow;
+      text-shadow: 2px 2px white;
+    }
+    50% {
+      visibility: hidden;
+      color:red;
+      text-shadow: 2px 2px white;
+    }
+    100% {
+      visibility: visible;
+      color:orange;
+      text-shadow: 2px 2px white;
+    }
+}

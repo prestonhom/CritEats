@@ -51,7 +51,11 @@ const RestaurantCard=(props)=>{
             </Card.Title>
                 <Card.Text 
                     className='card-text'>
-                    <img src='../../images/addressIcon.svg'/> Address
+                    <img src='../../images/addressIcon.svg'/> 
+                    <span style={{
+                        fontSize:'150%',
+                        color:'teal'
+                    }}>FIND US HERE </span>
                     <h6>{props.address} </h6>
                 </Card.Text>
                 <Card.Text 
@@ -63,7 +67,11 @@ const RestaurantCard=(props)=>{
             className='menu-button'
             variant="primary"
             >                    
-            <a href={props.to} className='menu-word'>Menu</a>
+                <a 
+                href={props.to} 
+                className='menu-word'>
+                    Menu
+                </a>
             </Button>
             </Card.Body>
         </Card>

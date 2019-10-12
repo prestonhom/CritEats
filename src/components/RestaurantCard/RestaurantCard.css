@@ -16,6 +16,9 @@
 .menu-word{
     color:white;
 }
+.menu-word:hover{
+    color:white;
+}
 .menu-button{
     background:rgb(255,118,228);
 }
@@ -23,4 +26,6 @@
     background:cyan;
     color:teal;
     border-radius: 20px;
+
 }
+
