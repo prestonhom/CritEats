@@ -23,7 +23,7 @@ Judge a restaurant by its food -- and only its food.
 * Users can view all restaurants and menus
 * Menu items are cateogrized
 
-[Click here!](https://criteats.herokuapp.com)
+[Deployed Site!](https://criteats.herokuapp.com)
 
 # Future Features
 * Consume Orders API
