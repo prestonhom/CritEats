@@ -14,24 +14,21 @@ class RestaurantPage extends Component{
         return(
         <div>
         <h1 style={{
-                  textAlign:'center',
-                  fontFamily: 'Monoton, cursive',
-                  textShadow:'1px 1px',
-                  color:'pink'
-
-               }}>
-                  M &nbsp; E &nbsp; N &nbsp; U
-            </h1>
-            
-            <form className='form' style={{
-               margin:'0 0 0 2rem'
+                textAlign:'center',
+                fontFamily: 'Monoton, cursive',
+                textShadow:'1px 1px',
+                color:'pink'
             }}>
-      
-               <input type='text'className='rightArrow' placeholder='SEARCH'></input>
+                M &nbsp; E &nbsp; N &nbsp; U
+            </h1>
+            <form 
+            className='form' 
+            style={{
+            margin:'0 0 0 2rem'
+            }}>
+                <input type='text'className='rightArrow' placeholder='SEARCH'></input>
             </form>
-
             <MenuList
-                
                 menus={this.state.restaurant.menus}
             />
         </div>

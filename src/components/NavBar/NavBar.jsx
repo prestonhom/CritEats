@@ -1,6 +1,8 @@
 import React, {Component} from "react";
-import {Link} from 'react-router-dom';
+import {Link, Route, Switch, Redirect } from 'react-router-dom';
 import {Navbar, Nav, NavDropdown,Button} from 'react-bootstrap';
+import userService from '../../utils/userService';
+import tokenService from '../../utils/tokenService';
 import './NavBar.css'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
@@ -12,9 +14,13 @@ class Navigation extends Component{
         this.onMouseEnter = this.onMouseEnter.bind(this);
         this.onMouseLeave = this.onMouseLeave.bind(this);
         this.state = {
-        dropdownOpen: false
+        dropdownOpen: false,
+        logout: this.props.logout,
+        user:this.props.user
+
     };
     }
+
     toggle() {
     this.setState(prevState => ({
         dropdownOpen: !prevState.dropdownOpen
@@ -28,10 +34,36 @@ class Navigation extends Component{
     onMouseLeave() {
     this.setState({dropdownOpen: false});
     }
+   
+    handleSignupOrUser=()=>{
+       
+        if(this.state.user === null){
+            return(
+                <DropdownItem className='dropdown-item'style={{backgroundColor:'black'}}> 
+                    <Link to='/signup' style={{color:'pink'}}>SignUp
+                    </Link>
+                </DropdownItem>
+                )
+            
+        }else{
+            return(
+                <DropdownItem className='dropdown-item'style={{backgroundColor:'black'}}> 
+                    <Link to='/signup' style={{color:'pink'}}>{this.state.user.name}
+                    </Link>
+                </DropdownItem>
+                )
+            
+        }
+        
+    }
     
     render(){
+        
     return (
+
     <>
+     
+
     <Navbar className='NavBar' expand="lg">
         <Navbar.Brand className='logo' href="/restaurants" style={{
             color:'pink',
@@ -73,33 +105,25 @@ class Navigation extends Component{
                         backgroundColor:'pink',
                         marginRight: '2rem'
                     }}>
-                        Search
+                        ACCOUNT
                     </DropdownToggle>
                         <DropdownMenu 
                         style={{
                             backgroundColor:'teal', 
                             color:'white'
-                            
                             }}>
-    {props.user} ?
-    <div>
-      <Link to='/high-scores' className='NavBar-link'>HIGH SCORES</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
-    </div>
-    :
-    <div>
-      <Link to='/login' className='NavBar-link'>LOG IN</Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
-    </div>
-
-
-                            <DropdownItem className='dropdown-item'>Another Action</DropdownItem>
+                            {this.handleSignupOrUser()}
+                            <DropdownItem className='dropdown-item' style={{backgroundColor:'black'}} to='/login'>
+                            <Link to=''onClick={this.state.handleLogout} style={{color:'pink'}}>
+                                Logout 
+                                </Link>
+                            </DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem className='dropdown-item'>Another Action</DropdownItem>
+                            <DropdownItem className='dropdown-item' style={{backgroundColor:'black'}} to='/login'>
+                                <Link to='/login' style={{color:'pink'}}>Login
+                                </Link>
+                            </DropdownItem>
+                            
                         </DropdownMenu>
                     </Dropdown>
         </Navbar.Collapse>

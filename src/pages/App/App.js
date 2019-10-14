@@ -53,6 +53,7 @@ async componentDidMount(){
       <div>
         <Navigation 
           user={this.state.user}
+          logout={this.handleLogout}
         />
         <Switch>
           <Route exact path='/' render={() =>(
