@@ -60,11 +60,13 @@ class Navigation extends Component{
         }} />
         <Navbar.Collapse style={{
             background:'transparent'
-        }}>
-                <Nav className="mr-auto">
+        }}>     
+        
+                <Nav className="mr-auto" style={{
+                    borderRadius:'5px'
+                }}>
                     <Nav.Link className='links'href="/"style={{
                         color:'white',
-                        
                     }}>Home</Nav.Link>
                     <Nav.Link className='links' href="/About"
                     style={{
@@ -74,8 +76,8 @@ class Navigation extends Component{
                     style={{
                         color:'white'
                     }}>Restaurants</Nav.Link>
-                    
                 </Nav>
+                
                 <Dropdown 
                         className="d-inline-block" 
                         onMouseOver={this.onMouseEnter} 
@@ -94,7 +96,7 @@ class Navigation extends Component{
                     </DropdownToggle>
                         <DropdownMenu 
                         style={{
-                            backgroundColor:'teal', 
+                            backgroundColor:'transparent', 
                             color:'white'
                             }}>
                             {this.handleSignupOrUser()}

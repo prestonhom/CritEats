@@ -16,8 +16,13 @@ const MenuCard=(props)=>{
             <Card.Body className='card-body' style={{
                 backgroundColor:'pink'
             }}>
-            <Card.Title className='card-title'>{props.name} Items</Card.Title>
-               
+            <Card.Title className='card-title' 
+            style={{
+                textAlign:'center',
+                backgroundColor:'transparent',
+                }}>
+                {props.name.toUpperCase()} 
+            </Card.Title>
             </Card.Body>
         </Card>
     )

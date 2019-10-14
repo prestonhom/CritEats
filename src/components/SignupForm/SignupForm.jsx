@@ -37,7 +37,7 @@ class SignupForm extends Component {
   render() {
     return (
       <div style={{
-        margin:'0 20rem'
+        margin:'0 10rem'
       }}>
         <h1 style={{
                   textAlign:'center',

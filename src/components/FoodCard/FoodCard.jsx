@@ -20,6 +20,8 @@ const FoodCard=(props)=>{
             <Card.Body className='card-body' style={{
                 backgroundColor:'black',
                 padding:0,
+                display:'flex',
+                flexDirection:'column'
             }} >
             <Card.Title className='card-title'>{props.name}</Card.Title>
             <Card.Text className='card-text'>
@@ -33,6 +35,7 @@ const FoodCard=(props)=>{
             className='menu-button'
             variant="link"
             href={props.to}
+            style={{margin:'2rem'}}
             >                    
                 <span className='menu-word' style={{
                     backgroundColor:'transparent'

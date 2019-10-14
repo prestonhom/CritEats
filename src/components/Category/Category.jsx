@@ -8,7 +8,8 @@ const Category=(props)=>{
         {props.categories.map((s)=>{
             return(
                 <div>
-                    THIS IS name of {s.id},{s.name},
+                    <span style={{color:'pink'}}>{s.name.toUpperCase()}
+                    </span>
                    <Food 
                     category_foods={s.foods}
                    />

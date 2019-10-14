@@ -23,7 +23,7 @@ class RestaurantPage extends Component{
             <form 
             className='form' 
             style={{
-            margin:'0 0 0 2rem'
+            margin:'0 0 0 10em'
             }}>
                 <input type='text'className='rightArrow' placeholder='SEARCH'></input>
             </form>

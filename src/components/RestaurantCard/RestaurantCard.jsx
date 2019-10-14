@@ -7,7 +7,6 @@ const RestaurantCard=(props)=>{
     return(
         <div
         style={{
-            // boxShadow:'5px 5px rgb(255,118,228)',
             margin:'30px',
             maxHeight:'20rem'
         }}>
