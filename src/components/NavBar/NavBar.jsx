@@ -15,7 +15,7 @@ class Navigation extends Component{
         this.onMouseLeave = this.onMouseLeave.bind(this);
         this.state = {
         dropdownOpen: false,
-        logout: this.props.logout,
+        
         user:this.props.user
 
     };
@@ -35,8 +35,11 @@ class Navigation extends Component{
     this.setState({dropdownOpen: false});
     }
    
+    handleLogout=()=>{
+       this.setState({user: null})
+    }
     handleSignupOrUser=()=>{
-       
+
         if(this.state.user === null){
             return(
                 <DropdownItem className='dropdown-item'style={{backgroundColor:'black'}}> 
@@ -114,7 +117,7 @@ class Navigation extends Component{
                             }}>
                             {this.handleSignupOrUser()}
                             <DropdownItem className='dropdown-item' style={{backgroundColor:'black'}} to='/login'>
-                            <Link to=''onClick={this.state.handleLogout} style={{color:'pink'}}>
+                            <Link to=''onClick={this.handleLogout} style={{color:'pink'}}>
                                 Logout 
                                 </Link>
                             </DropdownItem>
