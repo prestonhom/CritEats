@@ -11,7 +11,7 @@ const MenuPage=(props)=>{
             <Row>
         {props.menus.map((m)=>{
         return(
-            <div>
+            <div style={{textAlign:'center'}}>
                 <MenuCard
                     name={m.name}
                     menuPhoto={m.menu_photo}

@@ -4,6 +4,8 @@ import './MenuCard.css'
 
 const MenuCard=(props)=>{
     return(
+        <div>
+            
         <Card style={{ 
             width: '18rem',
             margin:'20px'
@@ -25,6 +27,7 @@ const MenuCard=(props)=>{
             </Card.Title>
             </Card.Body>
         </Card>
+        </div>
     )
 }
 

@@ -27,6 +27,10 @@ class RestaurantPage extends Component{
             }}>
                 <input type='text'className='rightArrow' placeholder='SEARCH'></input>
             </form>
+
+            <p style={{margin:'3rem', fontSize:'30px', fontStyle:'italic', textAlign:'center'}}>
+            {this.state.restaurant.description}
+            </p>
             <MenuList
                 menus={this.state.restaurant.menus}
             />
