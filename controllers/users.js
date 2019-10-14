@@ -36,11 +36,10 @@ async function login(req, res) {
   }
 }
 
-/*----- Helper Functions -----*/
 
 function createJWT(user) {
   return jwt.sign(
-    {user}, // data payload
+    {user}, 
     SECRET,
     {expiresIn: '24h'}
   );
