@@ -19,14 +19,14 @@ Judge a restaurant by its food -- and only its food.
 
 # The Basics
 
-*Mobile friendly
-*Users can view all restaurants and menus
-*Menu items are cateogrized
+* Mobile friendly
+* Users can view all restaurants and menus
+* Menu items are cateogrized
 
 [Click here!](https://criteats.herokuapp.com)
 
 # Future Features
-*Consume Orders API
-*Consume GoogleMaps API
-*Have working Reviews
-*Have working SearchBar
+* Consume Orders API
+* Consume GoogleMaps API
+* Have working Reviews
+* Have working SearchBar
