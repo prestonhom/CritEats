@@ -1,18 +1,14 @@
-import React, { Component, Form,Button,FormGroup, Group } from 'react';
+import React, { Component} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link, Route, Switch, Redirect } from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
 import AboutPage from '../AboutPage/AboutPage';
-import RestaurantPage from '../RestaurantPage/RestaurantPage'
+import RestaurantPage from '../RestaurantPage/RestaurantPage';
 import Navigation from '../../components/NavBar/NavBar'
-import MenuList from '../../components/MenuList/MenuList'
-import MenuPage from '../../pages/MenuPage/MenuPage'
-import MenuCard from '../../components/MenuCard/MenuCard'
 import userService from '../../utils/userService';
-import tokenService from '../../utils/tokenService';
 import {getRestaurants} from '../../services/restaurant-api';
 class App extends Component {
   constructor() {
@@ -59,6 +55,7 @@ async componentDidMount(){
           <Route exact path='/' render={() =>(
             <div>
                 <img src='../../images/norma2d.png' 
+                  alt='something'
                   style={{
                   width:'100%',
                   height:'100%',

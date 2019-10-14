@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+
 import MenuList from '../../components/MenuList/MenuList'
-import MenuPage from '../MenuPage/MenuPage'
+
 import './RestaurantPage.css';
-import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
-import RestaurantDetailCard from '../../components/MenuCard/MenuCard'
+
 
 class RestaurantPage extends Component{
     state = {

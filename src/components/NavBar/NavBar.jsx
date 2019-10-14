@@ -1,8 +1,6 @@
 import React, {Component} from "react";
-import {Link, Route, Switch, Redirect } from 'react-router-dom';
-import {Navbar, Nav, NavDropdown,Button} from 'react-bootstrap';
-import userService from '../../utils/userService';
-import tokenService from '../../utils/tokenService';
+import {Link} from 'react-router-dom';
+import {Navbar, Nav} from 'react-bootstrap';
 import './NavBar.css'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
@@ -15,31 +13,24 @@ class Navigation extends Component{
         this.onMouseLeave = this.onMouseLeave.bind(this);
         this.state = {
         dropdownOpen: false,
-        
         user:this.props.user
-
     };
     }
-
     toggle() {
     this.setState(prevState => ({
         dropdownOpen: !prevState.dropdownOpen
     }));
     }
-
     onMouseEnter() {
     this.setState({dropdownOpen: true});
     }
-
     onMouseLeave() {
     this.setState({dropdownOpen: false});
     }
-   
     handleLogout=()=>{
-       this.setState({user: null})
+    this.setState({user: null})
     }
     handleSignupOrUser=()=>{
-
         if(this.state.user === null){
             return(
                 <DropdownItem className='dropdown-item'style={{backgroundColor:'black'}}> 
@@ -47,26 +38,17 @@ class Navigation extends Component{
                     </Link>
                 </DropdownItem>
                 )
-            
         }else{
             return(
-                <DropdownItem className='dropdown-item'style={{backgroundColor:'black'}}> 
-                    <Link to='/signup' style={{color:'pink'}}>{this.state.user.name}
-                    </Link>
+                <DropdownItem className='dropdown-item'style={{backgroundColor:'black',color:'pink'}}> 
+                    Hello, {this.state.user.name}
                 </DropdownItem>
                 )
-            
         }
-        
     }
-    
     render(){
-        
     return (
-
     <>
-     
-
     <Navbar className='NavBar' expand="lg">
         <Navbar.Brand className='logo' href="/restaurants" style={{
             color:'pink',
@@ -117,7 +99,7 @@ class Navigation extends Component{
                             }}>
                             {this.handleSignupOrUser()}
                             <DropdownItem className='dropdown-item' style={{backgroundColor:'black'}} to='/login'>
-                            <Link to=''onClick={this.handleLogout} style={{color:'pink'}}>
+                                <Link to=''onClick={this.handleLogout} style={{color:'pink'}}>
                                 Logout 
                                 </Link>
                             </DropdownItem>
@@ -126,7 +108,6 @@ class Navigation extends Component{
                                 <Link to='/login' style={{color:'pink'}}>Login
                                 </Link>
                             </DropdownItem>
-                            
                         </DropdownMenu>
                     </Dropdown>
         </Navbar.Collapse>

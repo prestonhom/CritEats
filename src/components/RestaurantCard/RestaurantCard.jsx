@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,Button,Row} from 'react-bootstrap'
+import {Card,Button} from 'react-bootstrap'
 import {ReactHover} from 'react-hover'
 import './RestaurantCard.css'
 
@@ -20,6 +20,7 @@ const RestaurantCard=(props)=>{
             }} >
             <Card.Img 
                 variant="top" 
+                alt='something'
                 src={props.photo}  
                 style={{
                     'width':'100%',
@@ -51,7 +52,7 @@ const RestaurantCard=(props)=>{
             </Card.Title>
                 <Card.Text 
                     className='card-text'>
-                    <img src='../../images/addressIcon.svg'/> 
+                    <img alt='something' src='../../images/addressIcon.svg'/> 
                     <span style={{
                         fontSize:'150%',
                         color:'teal'
@@ -60,7 +61,7 @@ const RestaurantCard=(props)=>{
                 </Card.Text>
                 <Card.Text 
                     className='card-text'>
-                    <img src='../../images/phoneIcon.svg'/>
+                    <img alt='something' src='../../images/phoneIcon.svg'/>
                     {props.phone}
                     </Card.Text>
             <Button 

@@ -1,8 +1,5 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import {Link, Route, Switch} from 'react-router-dom';
+import React from 'react';
 import './RestaurantList.css'
-import RestaurantPage from '../../pages/RestaurantPage/RestaurantPage';
 import RestaurantCard from '../RestaurantCard/RestaurantCard';
 import {Container, Row} from 'react-bootstrap';
 
@@ -55,6 +52,7 @@ const RestaurantList=(props)=>{
             <img 
                className='rightArrow' 
                src='../../images/rightarrow.svg' 
+               alt='something'
                style={{
                width:'2rem',
                height:'2rem'

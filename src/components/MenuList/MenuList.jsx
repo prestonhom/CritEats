@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import MenuPage from '../../pages/MenuPage/MenuPage'
 
 const MenuList=(props)=>{    

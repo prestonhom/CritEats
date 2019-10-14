@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import FoodCard from '../FoodCard/FoodCard'
-import Review from '../Review/Review'
 import {Container,Row} from 'react-bootstrap'
 
 

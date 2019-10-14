@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import RestaurantList from '../../components/RestaurantList/RestaurantList'
-import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 
 
 
