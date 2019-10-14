@@ -61,7 +61,6 @@ class Navigation extends Component{
         <Navbar.Collapse style={{
             background:'transparent'
         }}>     
-        
                 <Nav className="mr-auto" style={{
                     borderRadius:'5px'
                 }}>

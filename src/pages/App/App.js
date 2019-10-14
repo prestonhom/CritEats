@@ -10,6 +10,7 @@ import RestaurantPage from '../RestaurantPage/RestaurantPage';
 import Navigation from '../../components/NavBar/NavBar'
 import userService from '../../utils/userService';
 import {getRestaurants} from '../../services/restaurant-api';
+import ReviewForm from '../../components/ReviewForm/ReviewForm';
 class App extends Component {
   constructor() {
     super();
@@ -114,12 +115,10 @@ async componentDidMount(){
             this.state.restaurants.length
             ?
             <div> 
-             <RestaurantPage
-             {...props}
-             restaurants={this.handleOneRestaurant}
-             
-             />
-             
+            <RestaurantPage
+            {...props}
+            restaurants={this.handleOneRestaurant}
+            />
             </div>
             :
             <div>
@@ -138,7 +137,7 @@ async componentDidMount(){
              restaurants={this.handleOneRestaurant}
              
              />
-             
+            
             </div>
             :
             <div>
@@ -167,6 +166,10 @@ async componentDidMount(){
           />
           
         
+          <Route exact path='/reviews' render={( ) => 
+            <ReviewForm 
+            />
+          }/>
           <Route exact path='/about' render={( ) => 
             <AboutPage
             />

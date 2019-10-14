@@ -1,4 +1,6 @@
 import React from 'react';
+import Review from '../ReviewForm/ReviewForm'
+import {Link} from 'react-router-dom'
 import {Card,Button} from 'react-bootstrap'
 
 
@@ -8,7 +10,7 @@ const FoodCard=(props)=>{
             width: '18rem',
             margin:'2% 3%',
             height:'20rem',
-            boxShadow:'5px 5px white'
+            boxShadow:'1px 1px white'
              }} >
             <Card.Img 
                 variant="top" 
@@ -17,6 +19,7 @@ const FoodCard=(props)=>{
                     'width':'100%',
                     'height':'10rem'
                 }}/>
+                
             <Card.Body className='card-body' style={{
                 backgroundColor:'black',
                 padding:0,
@@ -25,9 +28,7 @@ const FoodCard=(props)=>{
             }} >
             <Card.Title className='card-title'>{props.name}</Card.Title>
             <Card.Text className='card-text'>
-                {props.price}
-            </Card.Text>
-            <Card.Text className='card-text'>
+                ${props.price}
             </Card.Text>
             <Card.Text className='card-text'>
             </Card.Text>
@@ -36,13 +37,19 @@ const FoodCard=(props)=>{
             variant="link"
             href={props.to}
             style={{margin:'2rem'}}
-            >                    
+            
+            >       
+            <Link   
+            to='/reviews'
+            >          
                 <span className='menu-word' style={{
                     backgroundColor:'transparent'
                 }}>
                    All Reviews
                 </span>
+            </Link>
             </Button>
+            
             </Card.Body>
         </Card>
     

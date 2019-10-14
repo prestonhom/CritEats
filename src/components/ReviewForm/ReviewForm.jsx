@@ -1,9 +1,18 @@
 import React from 'react';
+import './ReviewForm.css'
 
-
-const Review = ()=>{
+const ReviewForm = ()=>{
     return(
         <div>
+          <h1 style={{
+                  textAlign:'center',
+                  fontFamily: 'Monoton, cursive',
+                  textShadow:'1px 1px',
+                  color:'pink'
+
+               }}>
+                  REVIEWS
+            </h1>
             <form>
                     <label for='one-star'>1</label>
                     <label for='two-star'>2</label>
@@ -15,11 +24,13 @@ const Review = ()=>{
                         <input type="radio" name='stars' id='three-star' value='3'/> 
                         <input type="radio" name='stars' id='four-star' value='4'/> 
                         <input type="radio" name='stars' id='five-star' value='5'/> 
-                <input type="text" name='description' /> 
+                <input type="textArea" style={{
+                  width:'200px',
+                  height:'200px'
+                }}name='description' /> 
             </form>
         </div>
     )
-
 }
 
-export default Review;
+export default ReviewForm;
