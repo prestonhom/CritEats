@@ -1,0 +1,12 @@
+.submit-button{
+  color:pink;
+  text-align: center;
+  width:150px;
+  border-radius: 20px;
+  
+}
+.submit-button:hover{
+  background-color:teal;
+  border-radius:20px;
+  
+}

@@ -19,7 +19,7 @@ const ReviewForm = ()=>{
               textAlign:'center'
             }}
             >
-                    <div>
+                  <div>
                       <label for='one-star'>1</label>
                       <label for='two-star'>2</label>
                       <label for='three-star'>3</label>
@@ -30,15 +30,20 @@ const ReviewForm = ()=>{
                         <input type="radio" name='stars' id='three-star' value='3'/> 
                         <input type="radio" name='stars' id='four-star' value='4'/> 
                         <input type="radio" name='stars' id='five-star' value='5'/> 
-                    </div>
+                  </div>
+                  <div>
+                  <input 
+                    type="textArea" 
+                    placeholder='Write your review here: How was the food?' 
+                    style={{
+                      width:'40rem',
+                      height:'3rem'
+                    }}name='description' /> 
+                </div>
                 <div>
-                <input 
-                  type="textArea" 
-                  placeholder='Write your review here: How was the food?' 
-                  style={{
-                    width:'40rem',
-                    height:'3rem'
-                  }}name='description' /> 
+                <input type="submit" 
+                    className='submit-button'
+                    placeholder='SUBMIT REVIEW'/>
                 </div>
             </form>
         </div>
