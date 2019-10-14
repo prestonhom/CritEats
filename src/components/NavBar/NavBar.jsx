@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from 'react-router-dom';
 import {Navbar, Nav, NavDropdown,Button} from 'react-bootstrap';
 import './NavBar.css'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
@@ -74,12 +75,31 @@ class Navigation extends Component{
                     }}>
                         Search
                     </DropdownToggle>
-                        <DropdownMenu>
-                            <DropdownItem header>Header</DropdownItem>
-                            <DropdownItem disabled>Action</DropdownItem>
-                            <DropdownItem>Another Action</DropdownItem>
+                        <DropdownMenu 
+                        style={{
+                            backgroundColor:'teal', 
+                            color:'white'
+                            
+                            }}>
+    {props.user} ?
+    <div>
+      <Link to='/high-scores' className='NavBar-link'>HIGH SCORES</Link>
+      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
+      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
+    </div>
+    :
+    <div>
+      <Link to='/login' className='NavBar-link'>LOG IN</Link>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+    </div>
+
+
+                            <DropdownItem className='dropdown-item'>Another Action</DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem>Another Action</DropdownItem>
+                            <DropdownItem className='dropdown-item'>Another Action</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
         </Navbar.Collapse>

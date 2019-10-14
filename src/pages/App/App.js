@@ -7,6 +7,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
 import AboutPage from '../AboutPage/AboutPage';
 import RestaurantPage from '../RestaurantPage/RestaurantPage'
+import Navigation from '../../components/NavBar/NavBar'
 import MenuList from '../../components/MenuList/MenuList'
 import MenuPage from '../../pages/MenuPage/MenuPage'
 import MenuCard from '../../components/MenuCard/MenuCard'
@@ -19,7 +20,6 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       restaurants: [],
-      lightMode: false
     };
   }
   handleLogout = () => {
@@ -32,8 +32,7 @@ class App extends Component {
   }
 
   handleOneRestaurant=(id)=>{
-    // console.log('testttttttt')
-    // console.log(this.state.restaurants[id].menus)
+   
     return (this.state.restaurants[id])
   }
   handleOneMenu=(id)=>{
@@ -52,6 +51,9 @@ async componentDidMount(){
     
     return (
       <div>
+        <Navigation 
+          user={this.state.user}
+        />
         <Switch>
           <Route exact path='/' render={() =>(
             <div>

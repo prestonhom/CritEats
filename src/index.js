@@ -10,7 +10,7 @@ import Navigation from './components/NavBar/NavBar'
 
 ReactDOM.render(
   <Router>
-    <Navigation />
+    
     <Route component={App}/>
   
     </Router>,
