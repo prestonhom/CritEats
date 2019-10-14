@@ -4,7 +4,7 @@ Judge a restaurant by its food -- and only its food.
 
 # Screenshots:
 
-![Screenshot 1](public/images/screenshot1.png "Screenshot 1") 
+![Screenshot 1](/public/images/Screenshot1.png "Screenshot 1") 
 
 # Technologies Used
 * React
