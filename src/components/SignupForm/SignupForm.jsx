@@ -36,8 +36,18 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Sign Up</header>
+      <div style={{
+        margin:'0 20rem'
+      }}>
+        <h1 style={{
+                  textAlign:'center',
+                  fontFamily: 'Monoton, cursive',
+                  textShadow:'1px 1px',
+                  color:'pink'
+
+               }}>
+                  SIGN - UP
+            </h1>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">
@@ -61,8 +71,18 @@ class SignupForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+              <button disabled={this.isFormInvalid()} style={{
+                fontSize:'30px',
+                border:'transparent',
+                margin:'0 2rem',
+                color:'pink',
+                
+                
+              }}>Sign Up</button>&nbsp;&nbsp;
+              <Link to='/' style={{
+                color:'pink',
+                fontSize:'150%'
+              }}>Cancel</Link>
             </div>
           </div>
         </form>

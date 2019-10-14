@@ -23,15 +23,23 @@ const FoodCard=(props)=>{
             }} >
             <Card.Title className='card-title'>{props.name}</Card.Title>
             <Card.Text className='card-text'>
+                {props.price}
             </Card.Text>
             <Card.Text className='card-text'>
             </Card.Text>
             <Card.Text className='card-text'>
             </Card.Text>
-            <Button variant="primary"
-            style={{
-                backgroundColor: 'rgb(255,118,228)'
-            }}>Go somewhere</Button>
+            <Button 
+            className='menu-button'
+            variant="link"
+            href={props.to}
+            >                    
+                <span className='menu-word' style={{
+                    backgroundColor:'transparent'
+                }}>
+                   All Reviews
+                </span>
+            </Button>
             </Card.Body>
         </Card>
     

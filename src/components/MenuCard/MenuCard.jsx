@@ -13,14 +13,11 @@ const MenuCard=(props)=>{
                         'width':'100%',
                         'height':'30%'
                 }}/>
-                <Card.Body className='card-body' >
-                <Card.Title className='card-title'>{props.name}</Card.Title>
-                <Card.Text className='card-text'>
-                <a href={props.to}>YO{props.adress}</a>
-                </Card.Text>
-                <Button 
-                variant="primary"
-                >See all Reviews for this menu item</Button>
+            <Card.Body className='card-body' style={{
+                backgroundColor:'pink'
+            }}>
+            <Card.Title className='card-title'>{props.name} Items</Card.Title>
+               
             </Card.Body>
         </Card>
     )

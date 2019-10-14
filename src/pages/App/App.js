@@ -55,14 +55,6 @@ async componentDidMount(){
         <Switch>
           <Route exact path='/' render={() =>(
             <div>
-                <form className='form'>
-                <img className='rightArrow' src='../../images/rightarrow.svg' style={{
-                  width:'2rem',
-                  height:'2rem'
-                  }}>
-                </img>
-                <input type='text'className='rightArrow' placeholder='SEARCH'></input>
-                </form>
                 <img src='../../images/norma2d.png' 
                   style={{
                   width:'100%',
@@ -79,7 +71,10 @@ async componentDidMount(){
                 restaurants={this.state.restaurants}
               />
             :
-            <h1>is Loading</h1>
+            <div>
+            <h1>Loading...</h1>
+            <div class="loader"></div>
+            </div>
           )}/>
           <Route exact path={'/restaurants/:id' } render={props=>
             this.state.restaurants.length
@@ -91,7 +86,10 @@ async componentDidMount(){
              />
             </div>
             :
-            <h1>Loading</h1>
+            <div>
+            <h1>Loading...</h1>
+            <div class="loader"></div>
+            </div>
           }
           />
             <Route exact path={'/restaurants/:id/menu' } render={props=>
@@ -106,7 +104,10 @@ async componentDidMount(){
              
             </div>
             :
-            <h1>Loading</h1>
+            <div>
+            <h1>Loading...</h1>
+            <div class="loader"></div>
+            </div>
           }
           />
             <Route exact path={'/restaurants/:id/menu/:idx' } render={props=>
@@ -121,7 +122,10 @@ async componentDidMount(){
              
             </div>
             :
-            <h1>Loading</h1>
+            <div>
+            <h1>Loading...</h1>
+            <div class="loader"></div>
+            </div>
           }
           />
           
@@ -137,7 +141,10 @@ async componentDidMount(){
              
             </div>
             :
-            <h1>Loading</h1>
+            <div>
+            <h1>Loading...</h1>
+            <div class="loader"></div>
+            </div>
           }
           />
           <Route exact path={'/restaurants/:id/menu/:id/reviews' } render={props=>
@@ -152,7 +159,10 @@ async componentDidMount(){
              
             </div>
             :
-            <h1>Loading</h1>
+            <div>
+            <h1>Loading...</h1>
+            <div class="loader"></div>
+            </div>
           }
           />
           

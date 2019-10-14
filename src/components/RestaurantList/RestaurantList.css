@@ -1,4 +1,18 @@
+.form{
+color:black;
+}
 
+.form input{
+border-radius:5px;
+background:pink;
+box-shadow: 50px white;
+color:black;
+}
+
+.form input[type='text']:hover{
+border-radius: 5px;
+color:black;
+}
 
 
 @keyframes condemned_blink_effect {

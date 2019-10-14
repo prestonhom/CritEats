@@ -1,13 +1,21 @@
 .NavBar{
     background:black;
+    border-radius:20px;
     
 }
 
 
 .NavBar:hover{
-    background-color:rgb(255,0,212)
+    background-color:rgb(255,0,212);
+    border-radius:5px;
 }
 
 .NavDropdown:hover {
     display: block;
+}
+
+.links:hover{
+    background-color:transparent;
+    background-color:teal;
+    border-radius:2px;
 }

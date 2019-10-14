@@ -15,14 +15,17 @@ class Food extends Component{
                 <Row>
                     <div>
                         {this.state.food.map((s)=>{
-    
+                            
                             return(
                                 <div> 
                                     <FoodCard
                                         id={s.id}
+                                        price={s.price}
                                         name={s.name}
                                         foodPhoto={s.food_photo}
+                                        
                                     />
+                                    
                                 </div>
                             )
                         })}

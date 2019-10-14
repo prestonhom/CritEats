@@ -40,30 +40,37 @@ class Navigation extends Component{
             backgroundColor:`pink`,
             cursor:`pointer`,
         }} />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse style={{
+            background:'transparent'
+        }}>
                 <Nav className="mr-auto">
                     <Nav.Link className='links'href="/"style={{
-                        color:'white'
+                        color:'white',
+                        
                     }}>Home</Nav.Link>
-                    <Nav.Link className='links' href="/restaurants"
+                    <Nav.Link className='links' href="/About"
                     style={{
                         color:'white'
-                    }}>Restaurants</Nav.Link>
+                    }}>About</Nav.Link>
                     <Nav.Link className='links' href="/restaurants/"
                     style={{
                         color:'white'
                     }}>Restaurants</Nav.Link>
-                    <Dropdown 
+                    
+                </Nav>
+                <Dropdown 
                         className="d-inline-block" 
                         onMouseOver={this.onMouseEnter} 
                         onMouseLeave={this.onMouseLeave} 
                         isOpen={this.state.dropdownOpen} 
-                        toggle={this.toggle}>
+                        toggle={this.toggle}
+                        style={{background:'transparent'}}>
                     <DropdownToggle caret
                         style={{
                         fontSize:'90%',
                         border:'none',
-                        backgroundColor:''    
+                        backgroundColor:'pink',
+                        marginRight: '2rem'
                     }}>
                         Search
                     </DropdownToggle>
@@ -75,8 +82,6 @@ class Navigation extends Component{
                             <DropdownItem>Another Action</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
-                </Nav>
-                    <Button variant="outline-success">Search</Button>
         </Navbar.Collapse>
     </Navbar>
     </>
