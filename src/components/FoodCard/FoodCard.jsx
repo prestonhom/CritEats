@@ -40,7 +40,7 @@ const FoodCard=(props)=>{
             
             >       
             <Link   
-            to='/reviews'
+            to={`/food/${props.id}/createreview`}
             >          
                 <span className='menu-word' style={{
                     backgroundColor:'transparent'
