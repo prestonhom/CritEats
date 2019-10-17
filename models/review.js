@@ -1,3 +1,5 @@
+const User = require('./models/user.js')
+
 const reviewSchema = new mongoose.Schema({
     stars: {
         type:Number,
@@ -9,8 +11,10 @@ const reviewSchema = new mongoose.Schema({
         type:Schema.types.ObjectId,
         ref:'User'
     },
-
+    food:{
+        type: String,
+    }
     
 })
 
-  module.exports = mongoose.model('Review', reviewSchema);
+module.exports = mongoose.model('Review', reviewSchema);

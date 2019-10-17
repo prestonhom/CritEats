@@ -10,25 +10,22 @@ const RestaurantList=(props)=>{
             display:'flex',
             flexDirection:'column'
             }}>
-            <h1 style={{
+            <h1 
+               style={{
                   textAlign:'center',
                   fontFamily: 'Monoton, cursive',
                   textShadow:'1px 1px',
                   color:'pink'
-
                }}>
                   RESTAURANTS 
             </h1>
-            
-            <form className='form' style={{
+            <form className='form' 
+               style={{
                margin:'0 0 0 2rem'
             }}>
-      
                <input type='text'className='rightArrow' placeholder='SEARCH'></input>
             </form>
-
          </div>
-         
          <Row>
          {props.restaurants.map((s,idx)=>{
                return(
@@ -43,7 +40,6 @@ const RestaurantList=(props)=>{
                      zipcode={s.zipcode}
                      phone={s.phone}
                   />
-   
                )              
             })
          }
