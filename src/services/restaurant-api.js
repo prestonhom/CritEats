@@ -4,4 +4,3 @@ export async function getRestaurants(){
     return fetch(BASE_URL, {mode: 'cors'})
     .then(res => res.json());
 }
-    

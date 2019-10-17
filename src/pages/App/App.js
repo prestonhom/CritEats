@@ -11,12 +11,16 @@ import Navigation from '../../components/NavBar/NavBar'
 import userService from '../../utils/userService';
 import {getRestaurants} from '../../services/restaurant-api';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       user: userService.getUser(),
       restaurants: [],
+      foods:{
+        reviews:[]
+      }
     };
   }
   handleLogout = () => {
@@ -39,9 +43,10 @@ class App extends Component {
 
 async componentDidMount(){
     const restaurant = await getRestaurants();
+    // const reviews = await getReviews();
     const restaurantsObject= restaurant.result;
     this.setState({
-      restaurants: restaurantsObject
+      restaurants: restaurantsObject,
     }) 
   }
   render() {
@@ -66,25 +71,25 @@ async componentDidMount(){
             </div>
           )}/>
           <Route exact path='/restaurants' render={() =>(
-             this.state.restaurants.length
-             ?
+            this.state.restaurants.length
+            ?
               <MainPage
                 restaurants={this.state.restaurants}
               />
             :
             <div>
-            <h1>Loading...</h1>
-            <div class="loader"></div>
+              <h1>Loading...</h1>
+              <div class="loader"></div>
             </div>
           )}/>
           <Route exact path={'/restaurants/:id' } render={props=>
             this.state.restaurants.length
             ?
             <div> 
-             <RestaurantPage
+            <RestaurantPage
             {...props}
             restaurants={this.handleOneRestaurant} 
-             />
+            />
             </div>
             :
             <div>
@@ -100,9 +105,7 @@ async componentDidMount(){
              <RestaurantPage
              {...props}
              restaurants={this.handleOneRestaurant}
-             
              />
-             
             </div>
             :
             <div>
@@ -127,17 +130,14 @@ async componentDidMount(){
             </div>
           }
           />
-          
-          <Route exact path={'/restaurants/:id/menu/:id/createreview' } render={props=>
+          <Route exact path={'/restaurants/:id/menu/:id/creatreview' } render={props=>
             this.state.restaurants.length
             ?
             <div> 
-             <RestaurantPage
-             {...props}
-             restaurants={this.handleOneRestaurant}
-             
-             />
-            
+            <RestaurantPage
+            {...props}
+            restaurants={this.handleOneRestaurant}
+            />
             </div>
             :
             <div>
@@ -146,16 +146,15 @@ async componentDidMount(){
             </div>
           }
           />
-          <Route exact path={'/restaurants/:id/menu/:id/reviews' } render={props=>
+          <Route exact path={'/food/:id/review' } render={props=>
             this.state.restaurants.length
             ?
             <div> 
-             <RestaurantPage
-             {...props}
-             restaurants={this.handleOneRestaurant}
-             
-             />
-             
+            <ReviewForm
+            {...props}
+            id={props.match.params.id}
+            restaurants={this.handleOneRestaurant}
+            />
             </div>
             :
             <div>
@@ -164,8 +163,6 @@ async componentDidMount(){
             </div>
           }
           />
-          
-        
           <Route exact path='/reviews' render={( ) => 
             <ReviewForm 
             />

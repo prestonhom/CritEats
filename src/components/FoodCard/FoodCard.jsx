@@ -37,19 +37,17 @@ const FoodCard=(props)=>{
             variant="link"
             href={props.to}
             style={{margin:'2rem'}}
-            
             >       
             <Link   
-            to={`/food/${props.id}/createreview`}
+            to={`/food/${props.id}/review`}
             >          
                 <span className='menu-word' style={{
                     backgroundColor:'transparent'
                 }}>
-                   All Reviews
+                   Create Review
                 </span>
             </Link>
             </Button>
-            
             </Card.Body>
         </Card>
     

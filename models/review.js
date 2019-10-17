@@ -1,6 +1,8 @@
-const User = require('./models/user.js')
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema
+const User = require('./user.js')
 
-const reviewSchema = new mongoose.Schema({
+const reviewSchema = new Schema({
     stars: {
         type:Number,
         min:1,
@@ -8,7 +10,7 @@ const reviewSchema = new mongoose.Schema({
     },
     description: String,
     user: {
-        type:Schema.types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref:'User'
     },
     food:{

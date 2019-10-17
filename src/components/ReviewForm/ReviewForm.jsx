@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import './ReviewForm.css'
+import createReview from '../../utils/reviewService.js'
 
 class ReviewForm extends Component{
     state={
-      newReview:{
         food: this.props.id,
-        stars: "3",
+        stars: '',
         description: '',
-        userName: this.props.user
-      },
+        // userName: this.props.user
     }
 
     handleFormChanges = async (evt) =>{
@@ -17,8 +16,14 @@ class ReviewForm extends Component{
       })
     }  
     handleFormSubmit= async (evt) =>{
+      console.log(evt)
+      
+      const review = await createReview({
+        ...this.state
+      });
+      console.log(review)
       evt.preventDefault()
-      this.setState({newReview: {...this.handleFormChanges}})
+      this.props.history.push('/restaurants')
     }
 
     render(){
@@ -43,12 +48,12 @@ class ReviewForm extends Component{
                   <div>
                   <label>
                     Stars:
-                    <select name='stars' onChange={this.handleChange}>
+                    <select name='stars' onChange={this.handleFormChanges}>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3" defaultValue='3'>3</option>
                       <option value="4">4</option>
-                      <option value="5">5</option>
+                      <option value="5">5</option>  
                     </select>
                   </label>
                       {/* <label for='one-star'>1</label>
@@ -63,15 +68,16 @@ class ReviewForm extends Component{
                         <input type="radio" name='stars' id='five-star' value='5'/>  */}
                   </div>
                   <div>
-                  <input 
-                    type="textArea" 
+                  <textarea 
+          
                     placeholder='Write your review here: How was the food?' 
                     style={{
                       width:'40rem',
                       height:'3rem'
                     }}
-                    
-                    name='description' /> 
+                    name='description' 
+                    onChange={this.handleFormChanges}
+                    /> 
                 </div>
                 <div>
                 <input type="submit" 

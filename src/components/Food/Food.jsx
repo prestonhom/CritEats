@@ -15,7 +15,6 @@ class Food extends Component{
             <Container>
                 <Row>
                     <div>
-
                         {this.state.food.map((s)=>{
                             return(
                                 <div> 
@@ -28,7 +27,7 @@ class Food extends Component{
                                     <ReviewForm 
                                         id={s.id}
                                     />
-                                </div>
+                                </div> 
                             )
                         })}
                     </div>
@@ -37,5 +36,4 @@ class Food extends Component{
         )
     }
 }
-
 export default Food;

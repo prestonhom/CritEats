@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-
 import MenuList from '../../components/MenuList/MenuList'
-
 import './RestaurantPage.css';
 
 
