@@ -18,9 +18,6 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       restaurants: [],
-      foods:{
-        reviews:[]
-      }
     };
   }
   handleLogout = () => {
@@ -36,14 +33,10 @@ class App extends Component {
    
     return (this.state.restaurants[id])
   }
-  handleOneMenu=(id)=>{
-    return(this.state.restaurants.menus[id])
-  }
-
-
+ 
 async componentDidMount(){
     const restaurant = await getRestaurants();
-    // const reviews = await getReviews();
+    
     const restaurantsObject= restaurant.result;
     this.setState({
       restaurants: restaurantsObject,

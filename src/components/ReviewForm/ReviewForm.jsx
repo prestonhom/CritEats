@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import './ReviewForm.css'
 import createReview from '../../utils/reviewService.js'
 
-
-
 class ReviewForm extends Component{
     state={
         food: this.props.id,

@@ -7,9 +7,9 @@ import ReviewForm from '../ReviewForm/ReviewForm'
 class Food extends Component{
     state = {
         food: this.props.category_foods,
-        allReviews:[],
+        
     }
-    
+    componentDidMount()
     render(){ 
         return(
             <Container>

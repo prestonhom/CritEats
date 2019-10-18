@@ -5,15 +5,25 @@ const Review = require('../models/review')
 // const db =('../models')
 
 module.exports = {
+    indexReview,
     createReview,
     // showReview,
     // editReview
 }
 
+async function indexReview(req,res){
+  try {
+    let reviews = await Review.find({})
+    res.json(reviews)
+  }
+  catch(err){
+    res.status(400).json(err)
+  }
+}
+
 async function createReview (req, res){
   try {
     let review = await new Review(req.body)
-    // review.userName = req.user.name
     review = await review.save();
     res.json(review)
   } 

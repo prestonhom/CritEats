@@ -1,6 +1,10 @@
 import userService from './userService';
 const BASE_URL="/api/food/"
 
+function getReviews(review){
+    return fetch(`${BASE_URL}${review.food}/reviews`)
+    .then((res) => res.json())
+}
 
 function createReview(review) {
     if (!userService.getUser()) return
@@ -12,4 +16,8 @@ function createReview(review) {
     .then((res) => res.json())
 }
 
-export default createReview;
+export default {
+    createReview,
+    getReviews
+    
+}
