@@ -13,7 +13,7 @@ module.exports = {
 async function createReview (req, res){
   try {
     let review = await new Review(req.body)
-    // review.user = req.user._id
+    // review.userName = req.user.name
     review = await review.save();
     res.json(review)
   } 

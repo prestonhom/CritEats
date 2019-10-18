@@ -12,6 +12,6 @@ ReactDOM.render(
     
     <Route component={App}/>
   
-    </Router>,
+  </Router>,
   document.getElementById('root')
 );

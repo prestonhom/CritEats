@@ -9,10 +9,7 @@ const reviewSchema = new Schema({
         max:5
     },
     description: String,
-    user: {
-        type: Schema.Types.ObjectId,
-        ref:'User'
-    },
+    userName: String,
     food:{
         type: String,
     }

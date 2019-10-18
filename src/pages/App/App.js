@@ -154,6 +154,7 @@ async componentDidMount(){
             {...props}
             id={props.match.params.id}
             restaurants={this.handleOneRestaurant}
+            userName={this.state.user.name}
             />
             </div>
             :

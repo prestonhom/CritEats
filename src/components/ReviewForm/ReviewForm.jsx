@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import './ReviewForm.css'
 import createReview from '../../utils/reviewService.js'
 
+
+
 class ReviewForm extends Component{
     state={
         food: this.props.id,
         stars: '',
         description: '',
-        // userName: this.props.user
+        userName: this.props.userName
     }
 
     handleFormChanges = async (evt) =>{
@@ -19,7 +21,7 @@ class ReviewForm extends Component{
       console.log(evt)
       
       const review = await createReview({
-        ...this.state
+        ...this.state 
       });
       console.log(review)
       evt.preventDefault()
@@ -68,8 +70,8 @@ class ReviewForm extends Component{
                         <input type="radio" name='stars' id='five-star' value='5'/>  */}
                   </div>
                   <div>
-                  <textarea 
-          
+                  <input
+                    type='text'
                     placeholder='Write your review here: How was the food?' 
                     style={{
                       width:'40rem',
