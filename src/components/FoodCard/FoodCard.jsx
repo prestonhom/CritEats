@@ -48,6 +48,22 @@ const FoodCard=(props)=>{
                 </span>
             </Link>
             </Button>
+            <Button 
+            className='menu-button'
+            variant="link"
+            href={props.to}
+            style={{margin:'2rem'}}
+            >       
+            <Link   
+            to={`/food/${props.id}/reviews`}
+            >          
+                <span className='menu-word' style={{
+                    backgroundColor:'transparent'
+                }}>
+                   All Reviews
+                </span>
+            </Link>
+            </Button>
             </Card.Body>
         </Card>
     

@@ -30,20 +30,17 @@ class App extends Component {
   }
 
   handleOneRestaurant=(id)=>{
-   
     return (this.state.restaurants[id])
   }
  
 async componentDidMount(){
     const restaurant = await getRestaurants();
-    
     const restaurantsObject= restaurant.result;
     this.setState({
       restaurants: restaurantsObject,
     }) 
   }
   render() {
-    
     return (
       <div>
         <Navigation 
@@ -157,10 +154,10 @@ async componentDidMount(){
             </div>
           }
           />
-          <Route exact path='/reviews' render={( ) => 
-            <ReviewForm 
+          {/* <Route exact path='/reviews' render={( ) => 
+            <Review
             />
-          }/>
+          }/> */}
           <Route exact path='/about' render={( ) => 
             <AboutPage
             />

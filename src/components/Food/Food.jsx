@@ -4,12 +4,13 @@ import {Container,Row} from 'react-bootstrap'
 import ReviewForm from '../ReviewForm/ReviewForm'
 
 
+
 class Food extends Component{
     state = {
         food: this.props.category_foods,
         
     }
-    componentDidMount()
+    
     render(){ 
         return(
             <Container>

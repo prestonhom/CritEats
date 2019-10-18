@@ -15,12 +15,9 @@ class ReviewForm extends Component{
       [evt.target.name]: evt.target.value
       })
     }  
-    handleFormSubmit= async (evt) =>{
+    handleFormSubmit = async (evt) =>{
       console.log(evt)
-      
-      const review = await createReview({
-        ...this.state 
-      });
+      const review = await createReview({...this.state });
       console.log(review)
       evt.preventDefault()
       this.props.history.push('/restaurants')
@@ -56,16 +53,6 @@ class ReviewForm extends Component{
                       <option value="5">5</option>  
                     </select>
                   </label>
-                      {/* <label for='one-star'>1</label>
-                      <label for='two-star'>2</label>
-                      <label for='three-star'>3</label>
-                      <label for='four-star'>4</label>
-                      <label for='five-star'>5</label>
-                        <input type="radio" name='stars' id='one-star' value='1'/> 
-                        <input type="radio" name='stars' id='two-star' value='2'/> 
-                        <input type="radio" name='stars' id='three-star' value='3'/> 
-                        <input type="radio" name='stars' id='four-star' value='4'/> 
-                        <input type="radio" name='stars' id='five-star' value='5'/>  */}
                   </div>
                   <div>
                   <input

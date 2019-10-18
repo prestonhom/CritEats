@@ -1,12 +1,12 @@
 import userService from './userService';
 const BASE_URL="/api/food/"
 
-function getReviews(review){
+async function getReviews(review){
     return fetch(`${BASE_URL}${review.food}/reviews`)
     .then((res) => res.json())
 }
 
-function createReview(review) {
+async function createReview(review){
     if (!userService.getUser()) return
     return fetch(`${BASE_URL}${review.food}/review`, {
         method: 'POST',
