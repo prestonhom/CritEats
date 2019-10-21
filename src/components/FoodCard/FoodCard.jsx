@@ -1,17 +1,16 @@
 import React from 'react';
-import Review from '../ReviewForm/ReviewForm'
 import {Link} from 'react-router-dom'
 import {Card,Button} from 'react-bootstrap'
-
+import Reviews from '../Reviews/Reviews'
 
 const FoodCard=(props)=>{
     return(
         <Card style={{ 
-            width: '18rem',
-            margin:'2% 3%',
-            height:'20rem',
-            boxShadow:'1px 1px white'
-             }} >
+                width: '18rem',
+                margin:'2% 3%',
+                height:'20rem',
+                boxShadow:'1px 1px white'
+            }} >
             <Card.Img 
                 variant="top" 
                 src={props.foodPhoto}  
@@ -30,8 +29,7 @@ const FoodCard=(props)=>{
             <Card.Text className='card-text'>
                 ${props.price}
             </Card.Text>
-            <Card.Text className='card-text'>
-            </Card.Text>
+           
             <Button 
             className='menu-button'
             variant="link"
@@ -64,6 +62,12 @@ const FoodCard=(props)=>{
                 </span>
             </Link>
             </Button>
+            <Card.Text className='card-text'>
+                <Reviews
+                    id={props.id}
+                    stars={props.stars}
+                />
+            </Card.Text>
             </Card.Body>
         </Card>
     

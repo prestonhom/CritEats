@@ -1,12 +1,12 @@
 import userService from './userService';
 const BASE_URL="/api/food/"
 
-async function getReviews(review){
+export async function getReviews(review){
     return fetch(`${BASE_URL}${review.food}/reviews`)
     .then((res) => res.json())
 }
 
-async function createReview(review){
+export async function createReview(review){
     if (!userService.getUser()) return
     return fetch(`${BASE_URL}${review.food}/review`, {
         method: 'POST',
@@ -16,8 +16,3 @@ async function createReview(review){
     .then((res) => res.json())
 }
 
-export default {
-    createReview,
-    getReviews
-    
-}

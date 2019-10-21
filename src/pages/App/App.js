@@ -11,6 +11,7 @@ import Navigation from '../../components/NavBar/NavBar'
 import userService from '../../utils/userService';
 import {getRestaurants} from '../../services/restaurant-api';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
+import Reviews from '../../components/Reviews/Reviews'
 
 class App extends Component {
   constructor() {
@@ -78,6 +79,7 @@ async componentDidMount(){
             <div> 
             <RestaurantPage
             {...props}
+            
             restaurants={this.handleOneRestaurant} 
             />
             </div>
@@ -141,6 +143,24 @@ async componentDidMount(){
             ?
             <div> 
             <ReviewForm
+            {...props}
+            id={props.match.params.id}
+            restaurants={this.handleOneRestaurant}
+            userName={this.state.user.name}
+            />
+            </div>
+            :
+            <div>
+            <h1>Loading...</h1>
+            <div class="loader"></div>
+            </div>
+          }
+          />
+          <Route exact path={'/food/:id/reviews'} render={props=>
+            this.state.restaurants.length
+            ?
+            <div> 
+            <Reviews
             {...props}
             id={props.match.params.id}
             restaurants={this.handleOneRestaurant}
