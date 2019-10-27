@@ -62,12 +62,12 @@ const FoodCard=(props)=>{
                 </span>
             </Link>
             </Button>
-            <Card.Text className='card-text'>
+            {/* <Card.Text className='card-text'>
                 <Reviews
                     id={props.id}
                     stars={props.stars}
                 />
-            </Card.Text>
+            </Card.Text> */}
             </Card.Body>
         </Card>
     

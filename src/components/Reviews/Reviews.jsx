@@ -17,7 +17,7 @@ class Reviews extends Component{
         return(
             <div>
                 {this.state.reviews.map((s)=>{
-                    console.log(this.state.reviews[0])
+                    if(this.props.id === parseInt(s.food))
                     return(
                         <div
                         style={{color:'red'}}
@@ -26,6 +26,7 @@ class Reviews extends Component{
                             {s.food}
                             {s.stars}
                             {s.description}
+                            {s.userName}
                         </div>
                     )
                 })}

@@ -10,9 +10,8 @@ const reviewSchema = new Schema({
     },
     description: String,
     userName: String,
-    food:{
-        type: String,
-    }
+    food: String,
+    
     
 })
 

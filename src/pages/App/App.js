@@ -12,6 +12,7 @@ import userService from '../../utils/userService';
 import {getRestaurants} from '../../services/restaurant-api';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
 import Reviews from '../../components/Reviews/Reviews'
+import {getReviews} from '../../utils/reviewService'
 
 class App extends Component {
   constructor() {
@@ -19,6 +20,7 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       restaurants: [],
+      reviews: []
     };
   }
   handleLogout = () => {
@@ -37,8 +39,10 @@ class App extends Component {
 async componentDidMount(){
     const restaurant = await getRestaurants();
     const restaurantsObject= restaurant.result;
+    const reviews = await getReviews({food:this.props.match.params.id});
     this.setState({
       restaurants: restaurantsObject,
+      reviews: reviews
     }) 
   }
   render() {
@@ -157,15 +161,21 @@ async componentDidMount(){
           }
           />
           <Route exact path={'/food/:id/reviews'} render={props=>
-            this.state.restaurants.length
+            this.state.reviews.length
             ?
-            <div> 
-            <Reviews
-            {...props}
-            id={props.match.params.id}
-            restaurants={this.handleOneRestaurant}
-            userName={this.state.user.name}
-            />
+            <div>
+                {this.state.reviews.map((s)=>{
+                  if(parseInt(props.match.params.id) === parseInt(s.food))
+                  // console.log(this.props.match.params.id)
+                    return(
+                      <div> 
+                        thiss is the food ID{s.food}
+                        {s.stars}
+                        {s.description}
+                      </div>
+                    )
+                })}
+                
             </div>
             :
             <div>
@@ -174,10 +184,6 @@ async componentDidMount(){
             </div>
           }
           />
-          {/* <Route exact path='/reviews' render={( ) => 
-            <Review
-            />
-          }/> */}
           <Route exact path='/about' render={( ) => 
             <AboutPage
             />
