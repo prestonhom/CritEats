@@ -9,23 +9,15 @@ class ReviewForm extends Component{
         description: '',
         userName: this.props.userName
     }
-
     handleFormChanges = async (evt) =>{
       this.setState({
       [evt.target.name]: evt.target.value
       })
     }  
     handleFormSubmit = async (evt) =>{
-      console.log(evt)
       const review = await createReview({...this.state });
-      console.log(review)
-      // if(evt.target.value === null){
-      // evt.preventDefault()
-      // }
-      // console.log(evt)
       this.props.history.push(`/food/${this.state.food}/reviews`)
     }
-
     render(){
     return(
         <div>
@@ -50,7 +42,7 @@ class ReviewForm extends Component{
                   <label>
                     Stars:
                     <select name='stars' onChange={this.handleFormChanges}>
-                      <option value="1" >1</option>
+                      <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
@@ -82,5 +74,4 @@ class ReviewForm extends Component{
     )
   }
 }
-
 export default ReviewForm;

@@ -110,39 +110,7 @@ async componentDidMount(){
             </div>
           }
           />
-            <Route exact path={'/restaurants/:id/menu/:idx' } render={props=>
-            this.state.restaurants.length
-            ?
-            <div> 
-            <RestaurantPage
-            {...props}
-            restaurants={this.handleOneRestaurant}
-            />
-            </div>
-            :
-            <div>
-            <h1>Loading...</h1>
-            <div class="loader"></div>
-            </div>
-          }
-          />
-          <Route exact path={'/restaurants/:id/menu/:id/creatreview' } render={props=>
-            this.state.restaurants.length
-            ?
-            <div> 
-            <RestaurantPage
-            {...props}
-            restaurants={this.handleOneRestaurant}
-            />
-            </div>
-            :
-            <div>
-            <h1>Loading...</h1>
-            <div class="loader"></div>
-            </div>
-          }
-          />
-          <Route exact path={'/food/:id/review' } render={props=>
+          <Route exact path={'/food/:id/review' } render={props =>
             this.state.restaurants.length
             ?
             <div> 
@@ -191,8 +159,8 @@ async componentDidMount(){
           }/>
           <Route exact path='/signup' render={({ history }) => 
             <SignupPage
-              history={history}
-              handleSignupOrLogin={this.handleSignupOrLogin}
+              history={history}  
+              handleSignupOrLogin={this.handleSignupOrLogin} 
             />
           }/>
           <Route exact path='/login' render={({ history }) => 

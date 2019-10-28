@@ -1,37 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
-import Reviews from '../Reviews/Reviews'
 
 
 const FoodCard = (props) => {
-    // const starRating=()=> {
-    //     let starsArray = [];
-    //     let count = 0;
-    //     props.reviews.map((s) => {
-    //         if (parseInt(props.id) === parseInt(s.food)) {
-    //             console.log((s.stars))
-    //             starsArray.push(s.stars)
-    //         }
-    //     })
-    //     for (var i = 0; i < starsArray.length; i++) {
-    //         count += starsArray[i]
-    //     }
-    //     return count / starsArray.length
-    // }
-    const starRating=()=> {
+    const starRating = () => {
         let starsArray = [];
-        let count = 0;
         props.reviews.map((s) => {
             if (parseInt(props.id) === parseInt(s.food)) {
-                console.log((s.stars))
                 starsArray.push(s.stars)
             }
         })
-        const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
+        const arrAvg = arr => arr.reduce((a, b) => a + b, 0) / arr.length
         return arrAvg(starsArray)
     }
-
     return (
         <Card style={{
             width: '18rem',
