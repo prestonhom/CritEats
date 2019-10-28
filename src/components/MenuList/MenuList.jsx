@@ -6,6 +6,7 @@ const MenuList=(props)=>{
         <div>
             <MenuPage
                 menus={props.menus}
+                reviews={props.reviews}
             />  
         </div>
     )

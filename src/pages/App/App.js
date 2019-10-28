@@ -83,7 +83,7 @@ async componentDidMount(){
             <div> 
             <RestaurantPage
             {...props}
-            
+            reviews={this.state.reviews}
             restaurants={this.handleOneRestaurant} 
             />
             </div>
@@ -170,7 +170,8 @@ async componentDidMount(){
                     return(
                       <div> 
                         thiss is the food ID{s.food}
-                        {s.stars}
+                        name right here//{s.userName}
+                        stars right here//{s.stars}
                         {s.description}
                       </div>
                     )

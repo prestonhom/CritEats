@@ -5,14 +5,12 @@ class Reviews extends Component{
     state={
         reviews:[]
     }
-
     async componentDidMount(){
         let reviews = await getReviews({food:this.props.id})
         this.setState({
             reviews:reviews
         })
     }
-
     render(){
         return(
             <div>

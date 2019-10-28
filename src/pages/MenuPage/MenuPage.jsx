@@ -18,6 +18,7 @@ const MenuPage=(props)=>{
                 />
                 <Category
                 categories={m.categories}
+                reviews={props.reviews}
                 />
             </div>
             )

@@ -43,6 +43,7 @@ class ReviewForm extends Component{
             onSubmit={this.handleFormSubmit}
             >
                   <div>
+                    User: <input type="text" name={this.state.userName}  value={this.state.userName} readonly></input>
                   <label>
                     Stars:
                     <select name='stars' onChange={this.handleFormChanges}>
@@ -70,7 +71,7 @@ class ReviewForm extends Component{
                 <input type="submit" 
                     className='submit-button'
                     placeholder='SUBMIT REVIEW'
-                    />
+                />
                 </div>
             </form>
         </div>

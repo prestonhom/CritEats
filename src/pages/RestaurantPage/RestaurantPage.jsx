@@ -31,6 +31,7 @@ class RestaurantPage extends Component{
             </p>
             <MenuList
                 menus={this.state.restaurant.menus}
+                reviews={this.props.reviews}
             />
         </div>
         )

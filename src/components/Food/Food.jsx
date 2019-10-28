@@ -7,8 +7,11 @@ import Reviews from '../Reviews/Reviews'
 class Food extends Component{
     state = {
         food: this.props.category_foods, 
-
     }
+
+    
+  
+     
     render(){ 
         return(
             <Container>
@@ -22,13 +25,12 @@ class Food extends Component{
                                         price={s.price}
                                         name={s.name}
                                         foodPhoto={s.food_photo}
-                                    />
-                                    {/* <Reviews
+                                        reviews={this.props.reviews}
+                                        />
+                                    
+                                    {/* <ReviewForm 
                                         id={s.id}
                                     /> */}
-                                    <ReviewForm 
-                                        id={s.id}
-                                    />
                                 </div> 
                             )
                         })}

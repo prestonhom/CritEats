@@ -12,6 +12,7 @@ const Category=(props)=>{
                     </span>
                    <Food 
                     category_foods={s.foods}
+                    reviews={props.reviews}
                    />
                 </div>
             )

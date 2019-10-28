@@ -1,68 +1,85 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-import {Card,Button} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Card, Button } from 'react-bootstrap'
 import Reviews from '../Reviews/Reviews'
 
-const FoodCard=(props)=>{
-    return(
-        <Card style={{ 
-                width: '18rem',
-                margin:'2% 3%',
-                height:'20rem',
-                boxShadow:'1px 1px white'
-            }} >
-            <Card.Img 
-                variant="top" 
-                src={props.foodPhoto}  
+
+const FoodCard = (props) => {
+    let starRating = () => {
+        let starsArray = [];
+        let count = 0;
+        props.reviews.map((s) => {
+            if(parseInt(props.id) === parseInt(s.food)){
+            console.log((s.stars))
+            starsArray.push(s.stars)
+        }
+    })
+    for (var i = 0; i < starsArray.length; i++) {
+        count += starsArray[i]
+    }
+    return count / starsArray.length
+    }
+    
+    return (
+        <Card style={{
+            width: '18rem',
+            margin: '2% 3%',
+            height: '20rem',
+            boxShadow: '1px 1px white'
+        }} >
+            <Card.Img
+                variant="top"
+                src={props.foodPhoto}
                 style={{
-                    'width':'100%',
-                    'height':'10rem'
-                }}/>
-                
+                    'width': '100%',
+                    'height': '10rem'
+                }} />
+
             <Card.Body className='card-body' style={{
-                backgroundColor:'black',
-                padding:0,
-                display:'flex',
-                flexDirection:'column'
+                backgroundColor: 'black',
+                padding: 0,
+                display: 'flex',
+                flexDirection: 'column'
             }} >
-            <Card.Title className='card-title'>{props.name}</Card.Title>
-            <Card.Text className='card-text'>
-                ${props.price}
-            </Card.Text>
-           
-            <Button 
-            className='menu-button'
-            variant="link"
-            href={props.to}
-            style={{margin:'2rem'}}
-            >       
-            <Link   
-            to={`/food/${props.id}/review`}
-            >          
-                <span className='menu-word' style={{
-                    backgroundColor:'transparent'
-                }}>
-                   Create Review
+                <Card.Title className='card-title'>{props.name}</Card.Title>
+                <Card.Text className='card-text'>
+                    stars:{starRating()}
+                    ${props.price}
+                </Card.Text>
+
+                <Button
+                    className='menu-button'
+                    variant="link"
+                    href={props.to}
+                    style={{ margin: '2rem' }}
+                >
+                    <Link
+                        to={`/food/${props.id}/review`}
+                    >
+                        <span className='menu-word' style={{
+                            backgroundColor: 'transparent'
+                        }}>
+                            Create Review
                 </span>
-            </Link>
-            </Button>
-            <Button 
-            className='menu-button'
-            variant="link"
-            href={props.to}
-            style={{margin:'2rem'}}
-            >       
-            <Link   
-            to={`/food/${props.id}/reviews`}
-            >          
-                <span className='menu-word' style={{
-                    backgroundColor:'transparent'
-                }}>
-                   All Reviews
+                    </Link>
+                </Button>
+                <Button
+                    className='menu-button'
+                    variant="link"
+                    href={props.to}
+                    style={{ margin: '2rem' }}
+                >
+                    <Link
+                        to={`/food/${props.id}/reviews`}
+                    >
+                        <span className='menu-word' style={{
+                            backgroundColor: 'transparent'
+                        }}>
+                            All Reviews
                 </span>
-            </Link>
-            </Button>
-            {/* <Card.Text className='card-text'>
+                    </Link>
+                </Button>
+                {/* <Card.Text className='card-text'>
                 <Reviews
                     id={props.id}
                     stars={props.stars}
@@ -70,7 +87,7 @@ const FoodCard=(props)=>{
             </Card.Text> */}
             </Card.Body>
         </Card>
-    
+
     )
 }
 
