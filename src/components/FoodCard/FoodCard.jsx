@@ -5,21 +5,33 @@ import Reviews from '../Reviews/Reviews'
 
 
 const FoodCard = (props) => {
-    let starRating = () => {
+    // const starRating=()=> {
+    //     let starsArray = [];
+    //     let count = 0;
+    //     props.reviews.map((s) => {
+    //         if (parseInt(props.id) === parseInt(s.food)) {
+    //             console.log((s.stars))
+    //             starsArray.push(s.stars)
+    //         }
+    //     })
+    //     for (var i = 0; i < starsArray.length; i++) {
+    //         count += starsArray[i]
+    //     }
+    //     return count / starsArray.length
+    // }
+    const starRating=()=> {
         let starsArray = [];
         let count = 0;
         props.reviews.map((s) => {
-            if(parseInt(props.id) === parseInt(s.food)){
-            console.log((s.stars))
-            starsArray.push(s.stars)
-        }
-    })
-    for (var i = 0; i < starsArray.length; i++) {
-        count += starsArray[i]
+            if (parseInt(props.id) === parseInt(s.food)) {
+                console.log((s.stars))
+                starsArray.push(s.stars)
+            }
+        })
+        const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
+        return arrAvg(starsArray)
     }
-    return count / starsArray.length
-    }
-    
+
     return (
         <Card style={{
             width: '18rem',
@@ -43,15 +55,14 @@ const FoodCard = (props) => {
             }} >
                 <Card.Title className='card-title'>{props.name}</Card.Title>
                 <Card.Text className='card-text'>
-                    stars:{starRating()}
-                    ${props.price}
+                    stars:{starRating().toFixed(1)}/5
+                    price:${props.price}
                 </Card.Text>
-
                 <Button
                     className='menu-button'
                     variant="link"
                     href={props.to}
-                    style={{ margin: '2rem' }}
+                    style={{ margin: '.5rem' }}
                 >
                     <Link
                         to={`/food/${props.id}/review`}
@@ -67,7 +78,7 @@ const FoodCard = (props) => {
                     className='menu-button'
                     variant="link"
                     href={props.to}
-                    style={{ margin: '2rem' }}
+                    style={{ margin: '.5rem' }}
                 >
                     <Link
                         to={`/food/${props.id}/reviews`}
@@ -79,15 +90,8 @@ const FoodCard = (props) => {
                 </span>
                     </Link>
                 </Button>
-                {/* <Card.Text className='card-text'>
-                <Reviews
-                    id={props.id}
-                    stars={props.stars}
-                />
-            </Card.Text> */}
             </Card.Body>
         </Card>
-
     )
 }
 

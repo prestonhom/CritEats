@@ -5,7 +5,7 @@ import {createReview} from '../../utils/reviewService.js'
 class ReviewForm extends Component{
     state={
         food: this.props.id,
-        stars: '',
+        stars: '1',
         description: '',
         userName: this.props.userName
     }
@@ -19,8 +19,11 @@ class ReviewForm extends Component{
       console.log(evt)
       const review = await createReview({...this.state });
       console.log(review)
-      evt.preventDefault()
-      this.props.history.push('/restaurants')
+      // if(evt.target.value === null){
+      // evt.preventDefault()
+      // }
+      // console.log(evt)
+      this.props.history.push(`/food/${this.state.food}/reviews`)
     }
 
     render(){
@@ -40,16 +43,16 @@ class ReviewForm extends Component{
               flexDirection:'column',
               textAlign:'center',
             }}
-            onSubmit={this.handleFormSubmit}
+            onSubmit={evt=>{this.handleFormSubmit(evt.preventDefault())}}
             >
                   <div>
                     User: <input type="text" name={this.state.userName}  value={this.state.userName} readonly></input>
                   <label>
                     Stars:
                     <select name='stars' onChange={this.handleFormChanges}>
-                      <option value="1">1</option>
+                      <option value="1" >1</option>
                       <option value="2">2</option>
-                      <option value="3" defaultValue='3'>3</option>
+                      <option value="3">3</option>
                       <option value="4">4</option>
                       <option value="5">5</option>  
                     </select>
@@ -65,6 +68,7 @@ class ReviewForm extends Component{
                     }}
                     name='description' 
                     onChange={this.handleFormChanges}
+                    required='true'
                     /> 
                 </div>
                 <div>

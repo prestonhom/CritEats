@@ -46,7 +46,7 @@ class Navigation extends Component{
     }
     render(){
     return (
-    <>``
+    <>
     <Navbar className='NavBar' expand="lg">
         <Navbar.Brand className='logo' href="/restaurants" style={{
             color:'pink',
