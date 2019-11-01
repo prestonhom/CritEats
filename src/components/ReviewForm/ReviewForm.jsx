@@ -38,7 +38,7 @@ class ReviewForm extends Component{
             onSubmit={evt=>{this.handleFormSubmit(evt.preventDefault())}}
             >
                   <div>
-                    User: <input type="text" name={this.state.userName}  value={this.state.userName} readonly></input>
+                    
                   <label>
                     Stars:
                     <select name='stars' onChange={this.handleFormChanges}>
@@ -69,6 +69,7 @@ class ReviewForm extends Component{
                     placeholder='SUBMIT REVIEW'
                 />
                 </div>
+                <p>Logged in as:<input style={{border:'0', textAlign:'center' }}type="text" name={this.state.userName}  value={this.state.userName} readonly></input></p>
             </form>
         </div>
     )

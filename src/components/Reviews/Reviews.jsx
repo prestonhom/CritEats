@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {getReviews} from '../../utils/reviewService'
 
+
 class Reviews extends Component{
     state={
         reviews:[]
@@ -20,6 +21,7 @@ class Reviews extends Component{
                         <div
                         style={{color:'red'}}
                         >
+                            
                             {s.id}
                             {s.food}
                             {s.stars}

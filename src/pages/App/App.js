@@ -1,7 +1,7 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
@@ -9,10 +9,11 @@ import AboutPage from '../AboutPage/AboutPage';
 import RestaurantPage from '../RestaurantPage/RestaurantPage';
 import Navigation from '../../components/NavBar/NavBar'
 import userService from '../../utils/userService';
-import {getRestaurants} from '../../services/restaurant-api';
+import { getRestaurants } from '../../services/restaurant-api';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
 import Reviews from '../../components/Reviews/Reviews'
-import {getReviews} from '../../utils/reviewService'
+import { getReviews } from '../../utils/reviewService'
+import Media from 'react-bootstrap/Media'
 
 class App extends Component {
   constructor() {
@@ -20,7 +21,7 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       restaurants: [],
-      reviews: []
+      reviews: [],
     };
   }
   handleLogout = () => {
@@ -29,146 +30,186 @@ class App extends Component {
   }
 
   handleSignupOrLogin = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
-  handleOneRestaurant=(id)=>{
+  handleOneRestaurant = (id) => {
     return (this.state.restaurants[id])
   }
- 
-async componentDidMount(){
+  handleStarRatings = (numberOfStars) => {
+    numberOfStars = parseInt(numberOfStars)
+    if (numberOfStars === 1) {
+      return ['stars']
+    }
+    if (numberOfStars === 2) {
+      return ['stars', 'stars']
+    }
+    if (numberOfStars === 3) {
+      return ['stars', 'stars', 'stars']
+    }
+    if (numberOfStars === 4) {
+      return ['stars', 'stars', 'stars', 'stars']
+    }
+    if (numberOfStars === 5) {
+      return ['stars', 'stars', 'stars', 'stars', 'stars']
+    }
+  }
+
+
+  async componentDidMount() {
     const restaurant = await getRestaurants();
-    const restaurantsObject= restaurant.result;
-    const reviews = await getReviews({food:this.props.match.params.id});
+    const restaurantsObject = restaurant.result;
+    const reviews = await getReviews({ food: this.props.match.params.id });
     this.setState({
       restaurants: restaurantsObject,
-      reviews: reviews
-    }) 
+      reviews: reviews,
+    })
   }
   render() {
     return (
       <div>
-        <Navigation 
+        <Navigation
           user={this.state.user}
           logout={this.handleLogout}
         />
         <Switch>
-          <Route exact path='/' render={() =>(
+          <Route exact path='/' render={() => (
             <div>
-                <img src='../../images/norma2d.png' 
-                  alt='something'
-                  style={{
-                  width:'100%',
-                  height:'100%',
-                  position:'absolute'
-                  }}
-                />
+              <img src='../../images/norma2d.png'
+                alt='something'
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  position: 'absolute'
+                }}
+              />
             </div>
-          )}/>
-          <Route exact path='/restaurants' render={() =>(
+          )} />
+          <Route exact path='/restaurants' render={() => (
             this.state.restaurants.length
-            ?
+              ?
               <MainPage
                 restaurants={this.state.restaurants}
               />
-            :
-            <div>
-              <h1>Loading...</h1>
-              <div class="loader"></div>
-            </div>
-          )}/>
-          <Route exact path={'/restaurants/:id' } render={props=>
+              :
+              <div>
+                <h1>Loading...</h1>
+                <div class="loader"></div>
+              </div>
+          )} />
+          <Route exact path={'/restaurants/:id'} render={props =>
             this.state.restaurants.length
-            ?
-            <div> 
-            <RestaurantPage
-            {...props}
-            reviews={this.state.reviews}
-            restaurants={this.handleOneRestaurant} 
-            />
-            </div>
-            :
-            <div>
-            <h1>Loading...</h1>
-            <div class="loader"></div>
-            </div>
+              ?
+              <div>
+                <RestaurantPage
+                  {...props}
+                  reviews={this.state.reviews}
+                  restaurants={this.handleOneRestaurant}
+                />
+              </div>
+              :
+              <div>
+                <h1>Loading...</h1>
+                <div class="loader"></div>
+              </div>
           }
           />
-            <Route exact path={'/restaurants/:id/menu' } render={props=>
+          <Route exact path={'/restaurants/:id/menu'} render={props =>
             this.state.restaurants.length
-            ?
-            <div> 
-             <RestaurantPage
-             {...props}
-             restaurants={this.handleOneRestaurant}
-             />
-            </div>
-            :
-            <div>
-            <h1>Loading...</h1>
-            <div class="loader"></div>
-            </div>
+              ?
+              <div>
+                <RestaurantPage
+                  {...props}
+                  restaurants={this.handleOneRestaurant}
+                />
+              </div>
+              :
+              <div>
+                <h1>Loading...</h1>
+                <div class="loader"></div>
+              </div>
           }
           />
-          <Route exact path={'/food/:id/review' } render={props =>
+          <Route exact path={'/food/:id/review'} render={props =>
             this.state.restaurants.length
-            ?
-            <div> 
-            <ReviewForm
-            {...props}
-            id={props.match.params.id}
-            restaurants={this.handleOneRestaurant}
-            userName={this.state.user.name}
-            />
-            </div>
-            :
-            <div>
-            <h1>Loading...</h1>
-            <div class="loader"></div>
-            </div>
+              ?
+              <div>
+
+                <ReviewForm
+                  {...props}
+                  id={props.match.params.id}
+                  restaurants={this.handleOneRestaurant}
+                  userName={this.state.user.name}
+                />
+              </div>
+              :
+              <div>
+                <h1>Loading...</h1>
+                <div class="loader"></div>
+              </div>
           }
           />
-          <Route exact path={'/food/:id/reviews'} render={props=>
+          <Route exact path={'/food/:id/reviews'} render={props =>
             this.state.reviews.length
-            ?
-            <div>
-                {this.state.reviews.map((s)=>{
-                  if(parseInt(props.match.params.id) === parseInt(s.food))
-                  // console.log(this.props.match.params.id)
-                    return(
-                      <div> 
-                        thiss is the food ID{s.food}
-                        name right here//{s.userName}
-                        stars right here//{s.stars}
-                        {s.description}
+              ?
+              <div>
+                {this.state.reviews.map((s) => {
+                  if (parseInt(props.match.params.id) === parseInt(s.food))
+                    return (
+                      <div>
+                        <ul className="list-unstyled">
+                          <Media as="li">
+                            <img
+                              width={64}
+                              height={64}
+                              className="mr-3"
+                              src='https://image.flaticon.com/icons/svg/149/149071.svg'
+                              alt="Generic placeholder"
+                            />
+                            <Media.Body>
+
+                              {this.handleStarRatings(s.stars).map((t) => {
+                                console.log(this.state.stars)
+                                return (
+                                  <img src='https://image.flaticon.com/icons/svg/616/616489.svg'></img>
+                                )
+                              })
+                              }
+                              <p>
+                                {s.userName} <span style={{ fontSize: '20px' }}> says </span>
+                        
+                                {s.description}
+                              </p>
+                            </Media.Body>
+                          </Media>
+                        </ul>
                       </div>
                     )
                 })}
-                
-            </div>
-            :
-            <div>
-            <h1>Loading...</h1>
-            <div class="loader"></div>
-            </div>
+              </div>
+              :
+              <div>
+                <h1>Loading...</h1>
+                <div class="loader"></div>
+              </div>
           }
           />
-          <Route exact path='/about' render={( ) => 
+          <Route exact path='/about' render={() =>
             <AboutPage
             />
-          }/>
-          <Route exact path='/signup' render={({ history }) => 
+          } />
+          <Route exact path='/signup' render={({ history }) =>
             <SignupPage
-              history={history}  
-              handleSignupOrLogin={this.handleSignupOrLogin} 
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
             />
-          }/>
-          <Route exact path='/login' render={({ history }) => 
+          } />
+          <Route exact path='/login' render={({ history }) =>
             <LoginPage
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
-          }/>
+          } />
         </Switch>
       </div>
     );

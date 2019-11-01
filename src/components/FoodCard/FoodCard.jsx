@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
 
 
+
 const FoodCard = (props) => {
     const starRating = () => {
         let starsArray = [];
@@ -12,8 +13,38 @@ const FoodCard = (props) => {
             }
         })
         const arrAvg = arr => arr.reduce((a, b) => a + b, 0) / arr.length
-        return arrAvg(starsArray)
+        let result = arrAvg(starsArray)
+        result = parseInt(result)
+        return Math.round(result)
     }
+
+    const handleStarRatings = (numberOfStars) => {
+        if (numberOfStars !== 1 && numberOfStars !== 2 && numberOfStars !== 3 &&
+            numberOfStars !== 4 && numberOfStars !== 5) {
+            return 'No Stars Yet'
+        }
+        else {
+            numberOfStars = parseInt(numberOfStars)
+            let shootingStar = <img style={{ width: '25px', height: '25px' }} src='https://image.flaticon.com/icons/svg/616/616489.svg' />;
+            if (numberOfStars === 1) {
+                return [shootingStar]
+            }
+            if (numberOfStars === 2) {
+                return [shootingStar, shootingStar]
+            }
+            if (numberOfStars === 3) {
+                return [shootingStar, shootingStar, shootingStar]
+            }
+            if (numberOfStars === 4) {
+                return [shootingStar, shootingStar, shootingStar, shootingStar]
+            }
+            if (numberOfStars === 5) {
+                return [shootingStar, shootingStar, shootingStar, shootingStar, shootingStar]
+            }
+        }
+
+    }
+    let thisArray = handleStarRatings(starRating())
     return (
         <Card style={{
             width: '18rem',
@@ -37,8 +68,10 @@ const FoodCard = (props) => {
             }} >
                 <Card.Title className='card-title'>{props.name}</Card.Title>
                 <Card.Text className='card-text'>
-                    stars:{starRating().toFixed(1)}/5
-                    price:${props.price}
+                    
+                    <p>{thisArray}</p>
+                    ${props.price}
+                    
                 </Card.Text>
                 <Button
                     className='menu-button'
