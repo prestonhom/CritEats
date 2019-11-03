@@ -33,7 +33,7 @@ class RestaurantList extends Component {
 
 
 
-               <input type='text' className='rightArrow' value={this.state.search} onChange={this.updateSearch} placeholder='SEARCH'></input>
+               <input style={{width: '10rem', margin:'0 0 0 2rem'}} type='text' className='rightArrow' value={this.state.search} onChange={this.updateSearch} placeholder='SEARCH'></input>
 
             </div>
             <Row>

@@ -6,11 +6,10 @@ import { Container, Row } from 'react-bootstrap'
 class Food extends Component {
     state = {
         food: this.props.category_foods,
+
     }
-   
     render() {
         return (
-
             <Container>
                 <Row>
                     <div>
@@ -23,11 +22,9 @@ class Food extends Component {
                                         name={s.name}
                                         foodPhoto={s.food_photo}
                                         reviews={this.props.reviews}
-                                        
                                     />
                                 </div>
                             )
-
                         })}
                     </div>
                 </Row>

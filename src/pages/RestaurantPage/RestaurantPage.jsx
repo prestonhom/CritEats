@@ -7,7 +7,7 @@ class RestaurantPage extends Component {
     state = {
         restaurant: this.props.restaurants(this.props.match.params.id),
     }
-    
+
     render() {
         return (
             <div>
@@ -19,13 +19,7 @@ class RestaurantPage extends Component {
                 }}>
                     M &nbsp; E &nbsp; N &nbsp; U
             </h1>
-                <form
-                    className='form'
-                    style={{
-                        margin: '0 0 0 10em'
-                    }}>
-                    <input type='text' className='rightArrow' placeholder='SEARCH'></input>
-                </form>
+            
 
                 <p style={{ margin: '3rem', fontSize: '30px', fontStyle: 'italic', textAlign: 'center' }}>
                     {this.state.restaurant.description}

@@ -67,7 +67,7 @@ const FoodCard = (props) => {
                 flexDirection: 'column',
 
             }} >
-                <Card.Title className='card-title'>{props.name} |$ {props.price}</Card.Title>
+                <Card.Title className='card-title'>{props.name} | &nbsp; ${props.price}</Card.Title>
                 <Card.Text className='card-text'>
 
                     {thisArray} 
