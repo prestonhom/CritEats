@@ -7,6 +7,8 @@ const MainPage=(props)=>{
         return(
             <div>
                 <RestaurantList
+                    search={props.search}
+                    updateSearch={props.updateSearch}
                     restaurants={props.restaurants}
                     handleARestaurant={props.handleARestaurant}
                 />

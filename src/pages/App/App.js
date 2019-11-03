@@ -36,6 +36,9 @@ class App extends Component {
   handleOneRestaurant = (id) => {
     return (this.state.restaurants[id])
   }
+  updateSearch(event){
+    this.setState({search: event.target.value.substr(0,20)})
+  }
   handleStarRatings = (numberOfStars) => {
     numberOfStars = parseInt(numberOfStars)
     if (numberOfStars === 1) {
@@ -89,6 +92,8 @@ class App extends Component {
             this.state.restaurants.length
               ?
               <MainPage
+                search={this.state.search}
+                updateSearch={this.updateSearch}
                 restaurants={this.state.restaurants}
               />
               :
