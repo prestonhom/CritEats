@@ -15,4 +15,3 @@ export async function createReview(review){
     })
     .then((res) => res.json())
 }
-

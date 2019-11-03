@@ -64,20 +64,21 @@ const FoodCard = (props) => {
                 backgroundColor: 'black',
                 padding: 0,
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+
             }} >
-                <Card.Title className='card-title'>{props.name}</Card.Title>
+                <Card.Title className='card-title'>{props.name} |$ {props.price}</Card.Title>
                 <Card.Text className='card-text'>
+
+                    {thisArray} 
                     
-                    <p>{thisArray}</p>
-                    ${props.price}
-                    
+
                 </Card.Text>
                 <Button
                     className='menu-button'
                     variant="link"
                     href={props.to}
-                    style={{ margin: '.5rem' }}
+                    style={{ margin: '.3rem' }}
                 >
                     <Link
                         to={`/food/${props.id}/review`}
@@ -93,7 +94,7 @@ const FoodCard = (props) => {
                     className='menu-button'
                     variant="link"
                     href={props.to}
-                    style={{ margin: '.5rem' }}
+                    style={{ margin: '.3rem' }}
                 >
                     <Link
                         to={`/food/${props.id}/reviews`}

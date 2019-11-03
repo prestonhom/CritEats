@@ -6,9 +6,6 @@ const restaurantsCtrl = require('../../controllers/restaurants');
 /*---------- Public Routes ----------*/
 router.get('/', restaurantsCtrl.index)
 
-
-
-
 /*---------- Protected Routes ----------*/
 
 module.exports = router;

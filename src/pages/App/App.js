@@ -167,17 +167,16 @@ class App extends Component {
                               alt="Generic placeholder"
                             />
                             <Media.Body>
-
                               {this.handleStarRatings(s.stars).map((t) => {
-                                console.log(this.state.stars)
+                                
                                 return (
+                                  
                                   <img src='https://image.flaticon.com/icons/svg/616/616489.svg'></img>
                                 )
                               })
                               }
                               <p>
                                 {s.userName} <span style={{ fontSize: '20px' }}> says </span>
-                        
                                 {s.description}
                               </p>
                             </Media.Body>
@@ -185,6 +184,7 @@ class App extends Component {
                         </ul>
                       </div>
                     )
+                            
                 })}
               </div>
               :
