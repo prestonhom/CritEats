@@ -32,7 +32,7 @@ async function createReview (req, res){
   }
 }
 async function deleteReview(req,res){
-  const deletedReview = await Review.findOneAndDelete({id:req.body._id})
+  const deletedReview = await Review.findByIdAndDelete(req.params.id)
   res.json(deletedReview)
 }
 // async function showReview(req,res){

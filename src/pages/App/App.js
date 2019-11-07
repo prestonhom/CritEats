@@ -38,25 +38,19 @@ class App extends Component {
   }
 
   deleteThisReview = async review=>{
-    const user = await userService.getUser()
     await deleteReview({
-      food:this.props.match.params.id,
-      id: this.state.reviews._id
+      food:review.food,
+      id: review._id
     })
-    let reviews = await getReviews({food:this.props.match.params.id})
-    this.setState({
-      reviews: reviews
-    })
-
+   
   }
   handleDelete =(review)=>{
-    
     return(
     (this.state.user.name === review.userName)
     ?
-    <a style={{color:'red'}} href="#top" onClick={(review) => this.deleteThisReview(review._id)}>Delete</a>
+    <a style={{color:'red'}} href='#top' onClick={() => this.deleteThisReview(review)}>Delete</a>
     :
-    <h2 style={{color:'red'}}> not a user</h2>
+    <h5 style={{color:'red'}}> not a user</h5>
     )
   }
   
@@ -206,8 +200,6 @@ class App extends Component {
                                 {s.description}
                                 {this.handleDelete(s)}
                               </p>
-            
-                              
                             </Media.Body>
                           </Media>
                         </ul>

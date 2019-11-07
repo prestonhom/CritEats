@@ -18,7 +18,7 @@ export async function createReview(review) {
 
 export async function deleteReview(review) {
     if (!userService.getUser()) return;
-    return fetch(`${BASE_URL}/${review.food}/reviews/${review._id}`, { method: 'DELETE' })
+    return fetch(`${BASE_URL}/${review.food}/reviews/${review.id}`, { method: 'DELETE' })
         .then(res => {
             if (res.ok) return res.json();
             throw new Error('Error deleting review!');
