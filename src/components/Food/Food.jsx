@@ -6,7 +6,6 @@ import { Container, Row } from 'react-bootstrap'
 class Food extends Component {
     state = {
         food: this.props.category_foods,
-
     }
     render() {
         return (

@@ -12,7 +12,7 @@ import userService from '../../utils/userService';
 import { getRestaurants } from '../../services/restaurant-api';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
 import Reviews from '../../components/Reviews/Reviews'
-import { getReviews } from '../../utils/reviewService'
+import { getReviews, deleteReview } from '../../utils/reviewService'
 import Media from 'react-bootstrap/Media'
 
 class App extends Component {
@@ -36,9 +36,31 @@ class App extends Component {
   handleOneRestaurant = (id) => {
     return (this.state.restaurants[id])
   }
-  updateSearch(event){
-    this.setState({search: event.target.value.substr(0,20)})
+
+  deleteThisReview = async review=>{
+    const user = await userService.getUser()
+    await deleteReview({
+      food:this.props.match.params.id,
+      id: this.state.reviews._id
+    })
+    let reviews = await getReviews({food:this.props.match.params.id})
+    this.setState({
+      reviews: reviews
+    })
+
   }
+  handleDelete =(review)=>{
+    
+    return(
+    (this.state.user.name === review.userName)
+    ?
+    <a style={{color:'red'}} href="#top" onClick={(review) => this.deleteThisReview(review._id)}>Delete</a>
+    :
+    <h2 style={{color:'red'}}> not a user</h2>
+    )
+  }
+  
+  
   handleStarRatings = (numberOfStars) => {
     numberOfStars = parseInt(numberOfStars)
     if (numberOfStars === 1) {
@@ -57,6 +79,7 @@ class App extends Component {
       return ['stars', 'stars', 'stars', 'stars', 'stars']
     }
   }
+
 
 
   async componentDidMount() {
@@ -173,9 +196,7 @@ class App extends Component {
                             />
                             <Media.Body>
                               {this.handleStarRatings(s.stars).map((t) => {
-                                
                                 return (
-                                  
                                   <img src='https://image.flaticon.com/icons/svg/616/616489.svg'></img>
                                 )
                               })
@@ -183,7 +204,10 @@ class App extends Component {
                               <p>
                                 {s.userName} <span style={{ fontSize: '20px' }}> says </span>
                                 {s.description}
+                                {this.handleDelete(s)}
                               </p>
+            
+                              
                             </Media.Body>
                           </Media>
                         </ul>

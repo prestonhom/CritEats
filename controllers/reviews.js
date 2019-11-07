@@ -7,7 +7,7 @@ const Review = require('../models/review')
 module.exports = {
     indexReview,
     createReview,
-    // showReview,
+    deleteReview,
     // editReview
 }
 
@@ -31,7 +31,10 @@ async function createReview (req, res){
       res.status(400).json(err);
   }
 }
-
+async function deleteReview(req,res){
+  const deletedReview = await Review.findOneAndDelete({id:req.body._id})
+  res.json(deletedReview)
+}
 // async function showReview(req,res){
 //   try {
 //   const review = Review.findById(req.params.id)
