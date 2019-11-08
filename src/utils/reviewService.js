@@ -16,6 +16,16 @@ export async function createReview(review) {
         .then((res) => res.json())
 }
 
+export async function getReview(review) {
+    if (!userService.getUser()) return;
+    console.log(review)
+    return fetch(`${BASE_URL}${review.food}/reviews/${review.id}`)
+    .then(res => {
+      if (res.ok) return res.json();
+      throw new Error('Error getting review!');
+    });
+  }
+
 export async function deleteReview(review) {
     if (!userService.getUser()) return;
     return fetch(`${BASE_URL}/${review.food}/reviews/${review.id}`, { method: 'DELETE' })
@@ -25,9 +35,9 @@ export async function deleteReview(review) {
         });
 }
 
-export function updateReview(review, inputs) {
+export function updateReview(food,idx, inputs) {
     if (!userService.getUser()) return;
-    return fetch(`${BASE_URL}/${review.food}/reviews/${review.id}/edit`, {
+    return fetch(`${BASE_URL}${food}/reviews/${idx}/edit`, {
       method: 'PUT',
       headers: new Headers({'Content-Type': 'application/json'}),
       body: JSON.stringify(inputs)

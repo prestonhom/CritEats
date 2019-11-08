@@ -12,7 +12,7 @@ import userService from '../../utils/userService';
 import { getRestaurants } from '../../services/restaurant-api';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
 import Reviews from '../../components/Reviews/Reviews'
-import { getReviews, deleteReview } from '../../utils/reviewService'
+import { getReviews, deleteReview, getReview } from '../../utils/reviewService'
 import UpdateReviewForm from '../../components/UpdateReviewForm/UpdateReviewForm'
 import Media from 'react-bootstrap/Media'
 
@@ -44,6 +44,8 @@ class App extends Component {
       id: review._id
     })
   }
+ 
+
   handleDelete =(review)=>{
     return(
     (this.state.user.name === review.userName)
@@ -58,6 +60,11 @@ class App extends Component {
     reviews.push(review);
     this.setState({ reviews });
   }
+  // updateReviews = async () => {
+  //   const reviews = await getReviews();
+    
+  //   this.setState({ reviews });
+  // }
   
   handleStarRatings = (numberOfStars) => {
     numberOfStars = parseInt(numberOfStars)
@@ -133,21 +140,25 @@ class App extends Component {
                   restaurants={this.handleOneRestaurant}
                 />
               </div>
-              :
+              : 
               <div>
                 <h1>Loading...</h1>
                 <div class="loader"></div>
               </div>
           }
           />
-          {/* <Route exact path={'/food/:id/reviews/:idx/edit'} render={props =>
+          <Route exact path={'/food/:id/reviews/:idx/edit'} render={props =>
             this.state.reviews.length
               ?
               <div>
+                {this.findOneReview}
                 <UpdateReviewForm
                   {...props}
-                  
+                  history={props.history}
+                  id={props.match.params.id}
+                  idx={props.match.params.idx}
                   restaurants={this.handleOneRestaurant}
+                  userName={this.state.user.name}
                 />
               </div>
               :
@@ -156,7 +167,7 @@ class App extends Component {
                 <div class="loader"></div>
               </div>
           }
-          /> */}
+          />
           <Route exact path={'/food/:id/review'} render={props =>
             this.state.restaurants.length
               ?
@@ -205,10 +216,9 @@ class App extends Component {
                                 {s.userName} <span style={{ fontSize: '20px' }}> says </span>
                                 {s.description}
                                 {this.handleDelete(s)}
+                             
                               </p>
-                              {/* <UpdateReviewForm 
-      
-                              /> */}
+                              
                             </Media.Body>
                           </Media>
                         </ul>
