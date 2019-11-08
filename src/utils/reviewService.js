@@ -24,3 +24,16 @@ export async function deleteReview(review) {
             throw new Error('Error deleting review!');
         });
 }
+
+export function updateReview(review, inputs) {
+    if (!userService.getUser()) return;
+    return fetch(`${BASE_URL}/${review.food}/reviews/${review.id}/edit`, {
+      method: 'PUT',
+      headers: new Headers({'Content-Type': 'application/json'}),
+      body: JSON.stringify(inputs)
+    })
+    .then(res => {
+      if (res.ok) return res.json();
+      throw new Error('Error updating review!');
+    });
+  }

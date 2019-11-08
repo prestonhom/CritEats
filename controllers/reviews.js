@@ -8,7 +8,7 @@ module.exports = {
     indexReview,
     createReview,
     deleteReview,
-    // editReview
+    updateReview
 }
 
 async function indexReview(req,res){
@@ -34,6 +34,15 @@ async function createReview (req, res){
 async function deleteReview(req,res){
   const deletedReview = await Review.findByIdAndDelete(req.params.id)
   res.json(deletedReview)
+}
+
+async function updateReview(req, res){
+  try {
+    const review = await Review.findByIdAndUpdate(req.params.id, req.body);
+    res.json(review);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 }
 // async function showReview(req,res){
 //   try {

@@ -13,6 +13,7 @@ import { getRestaurants } from '../../services/restaurant-api';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
 import Reviews from '../../components/Reviews/Reviews'
 import { getReviews, deleteReview } from '../../utils/reviewService'
+import UpdateReviewForm from '../../components/UpdateReviewForm/UpdateReviewForm'
 import Media from 'react-bootstrap/Media'
 
 class App extends Component {
@@ -42,7 +43,6 @@ class App extends Component {
       food:review.food,
       id: review._id
     })
-   
   }
   handleDelete =(review)=>{
     return(
@@ -53,7 +53,11 @@ class App extends Component {
     <h5 style={{color:'red'}}> not a user</h5>
     )
   }
-  
+  addReview = review => {
+    let reviews = [...this.state.reviews];
+    reviews.push(review);
+    this.setState({ reviews });
+  }
   
   handleStarRatings = (numberOfStars) => {
     numberOfStars = parseInt(numberOfStars)
@@ -136,12 +140,13 @@ class App extends Component {
               </div>
           }
           />
-          <Route exact path={'/restaurants/:id/menu'} render={props =>
-            this.state.restaurants.length
+          {/* <Route exact path={'/food/:id/reviews/:idx/edit'} render={props =>
+            this.state.reviews.length
               ?
               <div>
-                <RestaurantPage
+                <UpdateReviewForm
                   {...props}
+                  
                   restaurants={this.handleOneRestaurant}
                 />
               </div>
@@ -151,7 +156,7 @@ class App extends Component {
                 <div class="loader"></div>
               </div>
           }
-          />
+          /> */}
           <Route exact path={'/food/:id/review'} render={props =>
             this.state.restaurants.length
               ?
@@ -162,6 +167,7 @@ class App extends Component {
                   id={props.match.params.id}
                   restaurants={this.handleOneRestaurant}
                   userName={this.state.user.name}
+                  addReview={this.addReview}
                 />
               </div>
               :
@@ -200,6 +206,9 @@ class App extends Component {
                                 {s.description}
                                 {this.handleDelete(s)}
                               </p>
+                              {/* <UpdateReviewForm 
+      
+                              /> */}
                             </Media.Body>
                           </Media>
                         </ul>

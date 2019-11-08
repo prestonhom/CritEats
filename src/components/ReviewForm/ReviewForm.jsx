@@ -16,7 +16,8 @@ class ReviewForm extends Component{
     }  
     handleFormSubmit = async (evt) =>{
       const review = await createReview({...this.state });
-      this.props.history.push(`/food/${this.state.food}/reviews`)
+      this.props.addReview(review)
+      this.props.history.push(`/food/${review.food}/reviews/`)
     }
     render(){
     return(
