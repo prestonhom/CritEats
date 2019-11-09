@@ -16,10 +16,10 @@ export async function createReview(review) {
         .then((res) => res.json())
 }
 
-export async function getReview(review) {
+export async function getReview(food,idx) {
     if (!userService.getUser()) return;
-    console.log(review)
-    return fetch(`${BASE_URL}${review.food}/reviews/${review.id}`)
+    
+    return fetch(`${BASE_URL}${food}/reviews/${idx}`)
     .then(res => {
       if (res.ok) return res.json();
       throw new Error('Error getting review!');

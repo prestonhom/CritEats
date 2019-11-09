@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MainPage from '../MainPage/MainPage';
@@ -11,8 +11,7 @@ import Navigation from '../../components/NavBar/NavBar'
 import userService from '../../utils/userService';
 import { getRestaurants } from '../../services/restaurant-api';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
-import Reviews from '../../components/Reviews/Reviews'
-import { getReviews, deleteReview, getReview } from '../../utils/reviewService'
+import { getReviews, deleteReview, } from '../../utils/reviewService'
 import UpdateReviewForm from '../../components/UpdateReviewForm/UpdateReviewForm'
 import Media from 'react-bootstrap/Media'
 
@@ -25,6 +24,7 @@ class App extends Component {
       reviews: [],
     };
   }
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -38,34 +38,54 @@ class App extends Component {
     return (this.state.restaurants[id])
   }
 
-  deleteThisReview = async review=>{
+  deleteThisReview = async review => {
     await deleteReview({
-      food:review.food,
+      food: review.food,
       id: review._id
     })
   }
- 
 
-  handleDelete =(review)=>{
-    return(
-    (this.state.user.name === review.userName)
-    ?
-    <a style={{color:'red'}} href='#top' onClick={() => this.deleteThisReview(review)}>Delete</a>
-    :
-    <h5 style={{color:'red'}}> not a user</h5>
-    )
+  handleDelete = (review) => {
+    if (this.state.user === null) {
+      this.props.history.push(`/login`)
+    }
+    else {
+      return (
+        (this.state.user.name === review.userName)
+          ?
+          <a style={{ color: 'red' }} href='#top' onClick={() => this.deleteThisReview(review)}><img style={{ width: '18px', height: '18px' }} src='https://image.flaticon.com/icons/svg/395/395848.svg' /></a>
+          :
+          null
+      )
+    }
   }
+
+  handleEdit = (review) => {
+    if (this.state.user === null) {
+      this.props.history.push(`/login`)
+    }
+    else {
+      return (
+        (this.state.user.name === review.userName)
+          ?
+          <button style={{ border: 'none' }}> <Link style={{ color: 'red' }} to={`/food/${review.food}/reviews/${review._id}/edit`} ><img style={{ width: '18px', height: '18px' }} src='https://image.flaticon.com/icons/svg/526/526127.svg' /></Link></button>
+          :
+          null
+      )
+    }
+  }
+
   addReview = review => {
     let reviews = [...this.state.reviews];
     reviews.push(review);
     this.setState({ reviews });
   }
-  // updateReviews = async () => {
-  //   const reviews = await getReviews();
-    
-  //   this.setState({ reviews });
-  // }
-  
+
+  updateReviews = async () => {
+    const reviews = await getReviews({ food: this.props.match.params.id });
+    this.setState({ reviews });
+  }
+
   handleStarRatings = (numberOfStars) => {
     numberOfStars = parseInt(numberOfStars)
     if (numberOfStars === 1) {
@@ -85,8 +105,6 @@ class App extends Component {
     }
   }
 
-
-
   async componentDidMount() {
     const restaurant = await getRestaurants();
     const restaurantsObject = restaurant.result;
@@ -96,6 +114,7 @@ class App extends Component {
       reviews: reviews,
     })
   }
+
   render() {
     return (
       <div>
@@ -140,7 +159,7 @@ class App extends Component {
                   restaurants={this.handleOneRestaurant}
                 />
               </div>
-              : 
+              :
               <div>
                 <h1>Loading...</h1>
                 <div class="loader"></div>
@@ -159,6 +178,7 @@ class App extends Component {
                   idx={props.match.params.idx}
                   restaurants={this.handleOneRestaurant}
                   userName={this.state.user.name}
+                  updateReviews={this.updateReviews}
                 />
               </div>
               :
@@ -172,7 +192,6 @@ class App extends Component {
             this.state.restaurants.length
               ?
               <div>
-
                 <ReviewForm
                   {...props}
                   id={props.match.params.id}
@@ -192,6 +211,14 @@ class App extends Component {
             this.state.reviews.length
               ?
               <div>
+                <h1 style={{
+                  textAlign: 'center',
+                  fontFamily: 'Monoton, cursive',
+                  textShadow: '1px 1px',
+                  color: 'pink'
+                }}>
+                  REVIEWS
+            </h1>
                 {this.state.reviews.map((s) => {
                   if (parseInt(props.match.params.id) === parseInt(s.food))
                     return (
@@ -208,23 +235,28 @@ class App extends Component {
                             <Media.Body>
                               {this.handleStarRatings(s.stars).map((t) => {
                                 return (
-                                  <img src='https://image.flaticon.com/icons/svg/616/616489.svg'></img>
+                                  <img style={{ width: '25px', height: '25px' }} src='https://image.flaticon.com/icons/svg/616/616489.svg'></img>
                                 )
                               })
                               }
                               <p>
-                                {s.userName} <span style={{ fontSize: '20px' }}> says </span>
+                                <span style={{ fontSize: '25px' }}>"</span>
                                 {s.description}
-                                {this.handleDelete(s)}
-                             
+                                <span style={{ fontSize: '25px' }}>"</span>
                               </p>
-                              
+
+                              <p>
+                                -{s.userName}
+                                &nbsp; &nbsp; &nbsp;
+                                {this.handleDelete(s)}
+                                &nbsp; &nbsp; &nbsp;
+                                {this.handleEdit(s)}
+                              </p>
                             </Media.Body>
                           </Media>
                         </ul>
                       </div>
                     )
-                            
                 })}
               </div>
               :
@@ -234,16 +266,19 @@ class App extends Component {
               </div>
           }
           />
+
           <Route exact path='/about' render={() =>
             <AboutPage
             />
           } />
+
           <Route exact path='/signup' render={({ history }) =>
             <SignupPage
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           } />
+
           <Route exact path='/login' render={({ history }) =>
             <LoginPage
               history={history}

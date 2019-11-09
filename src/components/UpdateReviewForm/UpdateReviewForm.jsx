@@ -4,27 +4,30 @@ import { getReview, updateReview, getReviews } from '../../utils/reviewService.j
 
 class UpdateReviewForm extends Component {
   state = {
-      food: this.props.id,
-      stars: '',
-      description: '',
-      userName: this.props.userName
+    food: this.props.id,
+    stars: '',
+    description: '',
+    userName: this.props.userName
   }
+
   handleFormChanges = async (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value
     })
   }
+
   handleFormSubmit = async (evt) => {
-    try{
-      let inputs={
-        stars:this.state.stars,
-        description:this.state.description
+    try {
+      let inputs = {
+        stars: this.state.stars,
+        description: this.state.description
       }
-    await updateReview(this.props.id,this.props.idx, inputs);
-    this.props.history.push(`/food/${this.props.id}/reviews`)
+      await updateReview(this.props.id, this.props.idx, inputs);
+      this.props.updateReviews()
+      this.props.history.push(`/food/${this.props.id}/reviews`)
     }
-    catch(err){
-      console.log('THIS DIDNT WORK')
+    catch (err) {
+      console.log('Invalid Edit')
     }
   }
 
@@ -38,12 +41,8 @@ class UpdateReviewForm extends Component {
           textShadow: '1px 1px',
           color: 'pink'
         }}>
-          REVIEWS
+          UPDATE &nbsp; REVIEW
             </h1>
-        <h2 style={{color:'red'}}> previous stars and description</h2>
-        <p style={{color:'red'}}>{this.state.food}</p>
-        <p style={{color:'red'}}>{this.state.description}</p>
-
         <form
           style={{
             display: 'flex',
@@ -53,7 +52,6 @@ class UpdateReviewForm extends Component {
           onSubmit={evt => { this.handleFormSubmit(evt.preventDefault()) }}
         >
           <div>
-
             <label>
               Stars:
                     <select name='stars' onChange={this.handleFormChanges}>

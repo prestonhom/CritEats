@@ -19,7 +19,6 @@ class RestaurantPage extends Component {
                 }}>
                     M &nbsp; E &nbsp; N &nbsp; U
             </h1>
-        
                 <p style={{ margin: '3rem', fontSize: '30px', fontStyle: 'italic', textAlign: 'center' }}>
                     {this.state.restaurant.description}
                 </p>

@@ -4,7 +4,6 @@ import './LoginPage.css';
 import userService from '../../utils/userService';
 
 class LoginPage extends Component {
-  
   state = {
     email: '',
     pw: ''
@@ -21,7 +20,7 @@ class LoginPage extends Component {
     try {
       await userService.login(this.state);
       this.props.handleSignupOrLogin();
-      this.props.history.push('/');
+      this.props.history.push('/restaurants')
     } catch (err) {
       alert('Invalid Credentials!');
     }
@@ -30,14 +29,14 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="LoginPage">
-         <h1 style={{
-                  textAlign:'center',
-                  fontFamily: 'Monoton, cursive',
-                  textShadow:'1px 1px',
-                  color:'pink'
+        <h1 style={{
+          textAlign: 'center',
+          fontFamily: 'Monoton, cursive',
+          textShadow: '1px 1px',
+          color: 'pink'
 
-               }}>
-                  LOGIN
+        }}>
+          LOGIN
             </h1>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
@@ -53,12 +52,12 @@ class LoginPage extends Component {
           <div className="form-group">
             <div className="col-sm-12 text-center">
               <button style={{
-                color:'pink',
-                border:'transparent',
-                fontSize:'25px'
+                color: 'pink',
+                border: 'transparent',
+                fontSize: '25px'
               }}>Log In</button>&nbsp;&nbsp;&nbsp;
               <Link to='/' style={{
-                color:'pink'
+                color: 'pink'
               }}>Cancel</Link>
             </div>
           </div>
