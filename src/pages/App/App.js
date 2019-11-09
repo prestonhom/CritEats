@@ -43,6 +43,9 @@ class App extends Component {
       food: review.food,
       id: review._id
     })
+    const reviews = await getReviews({ food: this.props.match.params.id });
+    this.setState({ reviews });
+    this.props.history.push(`/food/${review.food}/reviews`)
   }
 
   handleDelete = (review) => {
