@@ -56,7 +56,7 @@ class App extends Component {
       return (
         (this.state.user.name === review.userName)
           ?
-          <a style={{ color: 'red' }} href='#top' onClick={() => this.deleteThisReview(review)}><img style={{ width: '18px', height: '18px' }} src='https://image.flaticon.com/icons/svg/395/395848.svg' /></a>
+          <a style={{ color: 'red' }} onClick={() => this.deleteThisReview(review)}><img style={{ width: '18px', height: '18px' }} src='https://image.flaticon.com/icons/svg/395/395848.svg' /></a>
           :
           null
       )
