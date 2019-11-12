@@ -5,6 +5,7 @@ Judge a restaurant by its food -- and only its food.
 # Screenshots:
 
 ![Screenshot 1](/public/images/Screenshot1.png "Screenshot 1") 
+![Screenshot 2](/public/images/criteatssnapshot.png "Screenshot 2") 
 
 # Technologies Used
 * React
@@ -25,8 +26,3 @@ Judge a restaurant by its food -- and only its food.
 
 [Deployed Site!](https://criteats.herokuapp.com)
 
-# Future Features
-* Consume Orders API
-* Consume GoogleMaps API
-* Have working Reviews
-* Have working SearchBar
